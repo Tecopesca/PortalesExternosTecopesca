@@ -1,0 +1,116 @@
+<app-header titulo ="Tracking" lug="clientes"> </app-header> 
+
+
+<ion-content class="Tracking">
+    <ion-row  class="bortr">
+       
+    </ion-row>
+    <ion-grid fixed  style=" padding-left: 0;padding-right: 0;"  >
+        <ion-row  class="cen2"     >
+          <link  rel="icon"   href="assets/icon/favicon.png" type="image/png" />
+
+          <ion-col size-lg="10"  size-md="10" size-sm="12"  size-xs="12" class="label-clientetr">
+              <ion-row>
+                
+                  
+
+                  <ion-col    size-lg="3"  size-sm="12" size-xs="12">
+                    <ion-grid   >
+                        <ion-row>
+                            <ion-col   size-xs="3.1" size-sm="12" size="3" size-lg="2"   >
+                             <label>Año</label>
+                            </ion-col>
+                            <ion-col  size-xs="8.9" size-sm="12" size="9" size-lg="10">
+                             <ng-select2
+                             [(ngModel)]="fil.anio"
+                             [data]="items3"
+                             [placeholder]="'Seleccione un Año'"
+                             [options]="options"
+                             [value]="selectedDatas"
+                             (valueChanged)="onTagChanged($event)">           	
+                                 >		
+                             </ng-select2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                 </ion-col>
+
+
+                
+                  <ion-col size-lg="3.5"     size-sm="12" size-xs="12">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size-xs="3.1" size-sm="12" size="3" size-lg="3.1" class="label-cliente2">
+                                <label>Proforma</label>
+                            </ion-col>
+                            <ion-col size-xs="8.9" size-sm="12" size="9" size-lg="8.9">
+                                <ng-select2
+                                [(ngModel)]="this.fil.proforma"
+                                [data]="items2"
+                                [options]="options"
+                                [placeholder]="'Seleccione una Proforma'"
+                                >
+                                </ng-select2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                 </ion-col>
+
+                  <ion-col size-lg="4"       size-sm="12" size-xs="12">
+                    <ion-grid>
+                        <ion-row>
+                               <ion-button class="busqueda4" (click)="filter()">Buscar</ion-button>
+                           </ion-row>
+                    </ion-grid>
+               </ion-col>
+                  
+              </ion-row>
+          
+             
+               
+       
+
+          </ion-col>
+          
+        </ion-row>
+        
+        
+      <ion-grid class="bor6" style=" padding-left: 0;padding-right: 0;"  >
+        <ion-row  style="  justify-content: center;" >
+             
+            <ion-col   size-lg="10" size-md="10" size-sm="12"  size-xs="12"  >
+                <div  >
+                    <ngx-datatable
+                        #mydatatable
+                        class="material bordes-redondeados6"
+                        
+                        [limit]="10"
+                        [columnMode]="ColumnMode.force"
+                        footerHeight="50"
+                        rowHeight="auto"
+                        [rows]="items4"
+                        [loadingIndicator]="true"
+                        [scrollbarH]="true"
+                    >
+                        <ngx-datatable-column name="Proforma" prop="proforma"></ngx-datatable-column>
+                        <ngx-datatable-column name="Pedido" prop="pedido"></ngx-datatable-column>
+                        <ngx-datatable-column name="Proceso" prop="proceso"></ngx-datatable-column>
+                        <ngx-datatable-column name="Fecha de Proceso" prop="fecha"></ngx-datatable-column>
+                        <ngx-datatable-column name="Tracking" prop="tracking">
+                          <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                            <button class="boton-tecopesca" (click)="mod(value.id_pedido,value.pedido)" title="Ver Tracking">
+                              <span class="teco-camion-teco"></span>
+                          </button>
+                          </ng-template>
+                      </ngx-datatable-column>
+
+                    </ngx-datatable>
+                </div>
+            </ion-col>
+             
+        </ion-row>
+    </ion-grid>
+
+    </ion-grid>
+
+</ion-content>

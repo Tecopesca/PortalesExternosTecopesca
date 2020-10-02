@@ -1,0 +1,163 @@
+
+<ion-content class="poppru">
+  <ion-row class="popprut1">
+    <ion-row  class=" bor">
+       
+    </ion-row>
+    <ion-grid fixed  class="center " >
+        <ion-row  class="cen2"   >
+          <link  rel="icon"   href="assets/icon/favicon.png" type="image/png" />
+
+          <ion-col size-lg="12"    size-md="12"  >
+              <ion-row  >
+                <ion-col   size-lg="0.72"  size-md="2" size-sm="4" size-xs="4">
+                    <div  align="start">
+                       <label style="font-weight: bold;" > Fecha:</label>
+                     </div>
+                  </ion-col>
+                  <ion-col  size-lg="1.8"  size-md="10" size-sm="6" size-xs="6" >
+                    <label for="">{{page.fecha}}</label>
+                  </ion-col>
+                  <ion-col   size-lg="1"  size-md="2"  size-sm="4" size-xs="4">
+                    <div  align="start">
+                       <label style="font-weight: bold;">Actividad:</label>
+                     </div>
+                  </ion-col> 
+
+                  <ion-col size-lg="6"  size-md="10" size-sm="6" size-xs="6" >
+                    <label for="">{{page.actividad}}</label>
+
+                  </ion-col>
+
+              
+              </ion-row>
+        
+          </ion-col>
+          
+        </ion-row>
+        
+  
+      <ion-grid >
+
+        <ion-row style="padding: 0; margin-top: 1%;">
+          <ion-col  size-lg="10" size-md="10"  size-xs="10"  size-sm="10">
+          <ion-button *ngIf="isError" (click)="guardar()" class="busqueda">Guardar</ion-button>
+          </ion-col>
+          
+        </ion-row>
+
+        <ion-row>
+       
+          <ion-col size-lg="12" size-md="12" size-sm="12"  size-xs="12" class="popprut"  >
+                <div>
+                    <ngx-datatable
+                        #mydatatable
+                        class="material bordes-redondeados"
+                        [limit]="10"
+                        [columnMode]="ColumnMode.force"
+                        footerHeight="50"
+                        rowHeight="auto"
+                        [rows]="items"
+                        [loadingIndicator]="true"
+                        [scrollbarH]="true"
+                        
+                    >
+                        <ngx-datatable-column [width]="60" name="Cantidad" prop="cantidad"></ngx-datatable-column>
+                        <ngx-datatable-column  [width]="60"   name="Artículo" prop="articulo"></ngx-datatable-column>
+                        <ngx-datatable-column [width]="280" name="Descripción" prop="descripcion"></ngx-datatable-column>
+                        
+                        <ngx-datatable-column [width]="110"   name="Precio Ofrecido" prop="precio">
+                          <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex"  let-value="value" let-row="row">
+                        
+                            <label *ngIf="!value.signo" >{{value}}</label>
+                            
+                             <ion-item style="height: 100%;" *ngIf="value.signo">
+                              
+                              <ion-input (ionBlur)="fixDecimals($event.target.value,rowIndex)"    [(ngModel)]="precio[rowIndex]"    type="number" style="font-size: 15px;"  required placeholder="--,--"></ion-input>
+                              <ion-icon name="logo-usd" style="font-size: 20px;" slot="start"></ion-icon>
+                            </ion-item>
+                            
+                          </ng-template>
+
+                        </ngx-datatable-column>
+                    
+                        <ngx-datatable-column [width]="200" name="Compromiso entrega" prop="compromiso">
+                          <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex"  let-value="value" let-row="row">
+                        
+                            <label *ngIf="value !==''" >{{value}}</label>
+                            
+                             <ion-item class="d" style="height: 100%" *ngIf="value==''">
+                               <label style="width: 70%; text-align: center;"> {{fecham[rowIndex]}} </label>  
+                              <input  type="date" id="dt" (change)="mydate1(fecha[rowIndex],rowIndex);" [(ngModel)]="fecha[rowIndex]" >
+
+                            </ion-item>
+                            <style>
+                              input[type="date"]::-webkit-inner-spin-button,
+                                                 ::-webkit-cancel-button ,    
+                                                ::-webkit-datetime-edit{
+                                  display: none;
+                              }
+                              input[type="date"] {
+                              position: relative;
+                                 }
+
+                           input[type="date"]:after {
+                             content: "\25BC"; 
+                          color: #555;
+                          padding: 0 5px;
+                        }
+
+                        input[type="date"]:hover:after {
+                        color: #662D91 ;
+                         }
+
+                         input[type="date"]::-webkit-calendar-picker-indicator {
+                        position: absolute;
+                          top: 0;
+                          left: 0;
+                         right: 0;
+                         bottom: 0;
+                        width: auto;
+                          height: auto;
+                          color: transparent;
+                        background: transparent;
+                           }
+
+                          input[type="date"]::-webkit-inner-spin-button {
+                           z-index: 1;
+                           }
+
+                          input[type="date"]::-webkit-clear-button {
+                               z-index: 1;
+                        }
+                              </style>
+                              
+                          </ng-template>
+
+
+                        </ngx-datatable-column>
+                       
+                       
+                       
+                        <ngx-datatable-column  [width]="30"  name="Ver" prop="ico">
+                          <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                            <ion-button class="boton-tecopesca"  title="Ver Img" (click)="ver(value.id)">
+                              <ion-icon name="image-outline"></ion-icon>
+                            </ion-button>
+                          </ng-template>
+                          
+                      </ngx-datatable-column>
+
+                    </ngx-datatable>
+                </div>
+                 
+            </ion-col>
+            <ion-col size-lg="1" size-md="1" size-sm="0"  size-xs="0" ></ion-col>
+        </ion-row>
+
+
+    </ion-grid>
+
+    </ion-grid>
+  </ion-row>
+</ion-content>

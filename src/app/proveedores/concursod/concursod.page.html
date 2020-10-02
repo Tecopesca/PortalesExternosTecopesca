@@ -1,0 +1,175 @@
+<app-header titulo ="Concurso de Adquisiciones" lug="proveedores"> </app-header> 
+
+
+<ion-content class="concursod">     
+          <ion-toolbar class="toolconcurso">
+            <ion-segment [(ngModel)]="pet" (ionChange)="segmentChanged($event)">
+              <ion-segment-button value="Solicitudes" checked>
+                Solicitudes
+              </ion-segment-button>
+              <ion-segment-button value="Curso">
+                En Curso
+              </ion-segment-button>
+              <ion-segment-button value="Finalizados">
+                Finalizados
+              </ion-segment-button>
+            </ion-segment>
+          </ion-toolbar>   
+    <ion-row  class=" bor"> 
+    </ion-row>
+   
+
+    <ion-grid  fixed     >
+     <ion-row>
+      <ion-col   size-lg="0.7"  size-md="2" size-sm="2" size-xs="4">
+        <div  align="start">
+           <label class="comb"  style=" font-size: 0.7em;font-weight: bold;" > Año</label>
+         </div>
+      </ion-col>
+     
+      <ion-col size-lg="2.4"  size-md="10" size-sm="10" size-xs="6" >
+        <div align="start" class="conselect">
+          <ng-select2 
+          
+          [width]="190"
+          [(ngModel)]="fil.fecha"
+          [data]="items4"
+          [placeholder]="'Seleccione Año'"
+          [options]="options"
+          [value]="fil"
+          (valueChanged)="onTagChanged($event)"
+         >           	
+          </ng-select2>
+
+         
+         </div>
+           
+
+      </ion-col>
+
+        <ion-col   size-lg="0.7"  size-md="2" size-sm="2" size-xs="4">
+          <div  align="start">
+             <label class="comb" style=" font-size: 0.7em;font-weight: bold;"  > Mes</label>
+           </div>
+        </ion-col>
+       
+        <ion-col size-lg="2.4"  size-md="10" size-sm="10" size-xs="6" >
+          <div align="start">
+            <ng-select2 
+            [width]="190"
+            [(ngModel)]="fil.referencia"
+            [data]="items2"
+            [placeholder]="'Seleccione Mes'"
+            [options]="options"
+            [value]="fil"
+            (valueChanged)="onTagChanged2($event)"
+
+           >           	
+            </ng-select2>
+
+           
+           </div>
+             
+
+        </ion-col>
+       
+        <ion-col   size-lg="1"  size-md="2" size-sm="2" size-xs="4">
+          <div  align="start">
+             <label class="comb" style=" font-size: 0.7em; font-weight: bold;" > Actividad</label>
+           </div>
+        </ion-col>
+       
+        <ion-col   size-lg="2.4"  size-md="10" size-sm="10" size-xs="6" >
+          <div align="start">
+            <ng-select2 
+            [width]="190"
+            [(ngModel)]="fil.actividad"
+            [data]="items3"
+            [placeholder]="'Seleccione Actividad'"
+            [options]="options"
+            [value]="fil"
+            >           	
+                     	
+            </ng-select2>
+
+           
+           </div>
+             
+
+        </ion-col>
+
+        
+        
+     
+     </ion-row>
+
+     
+    </ion-grid>
+  
+    
+  
+
+    <ion-grid  fixed>
+     
+  
+      <ion-row style="padding: 0; margin-top: 1%;">
+        <ion-col  size-lg="10" size-md="10"
+        size-xs="10"  size-sm="10">
+        <ion-button  (click)="updateFilter()" class="busqueda">Buscar</ion-button>
+        </ion-col>
+        <ion-col size="2" style="padding: 0;margin: 0; " class="actualizacion">
+          <ion-button  style="padding: 0;margin: 0;" (click)="actualizar(pet)"   class="button-proveedor">
+            <ion-icon name="reload-outline"></ion-icon>
+          </ion-button> 
+          <span class="leyenda-boton">Actualizar</span>
+        </ion-col>
+
+
+      </ion-row>
+      
+        <ion-row  >
+            
+            <ion-col size-lg="12" size-md="12" size-sm="12"  size-xs="12"  >
+                <div>
+                    <ngx-datatable
+                        #mydatatable
+                        class="material bordes-redondeados2" 
+                        [limit]="10"
+                        [columnMode]="ColumnMode.force"
+                        [footerHeight]="50"
+                        rowHeight="auto"
+                        [rows]="items"
+                        [loadingIndicator]="true"
+                        [scrollbarH]="true"
+                    >
+                        <ngx-datatable-column name="{{ti.name}}" prop="{{ti.prop}}"  *ngFor="let ti of titulo | async" >
+                          
+                        </ngx-datatable-column>
+                   
+                        <ngx-datatable-column name="{{tico}} " prop="ico">
+                          <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                            <ion-button class="boton-tecopescacd" title="Ver" (click)="ver(value)">
+                              <ion-icon name="document-outline"></ion-icon>
+                            </ion-button>
+                            
+
+                            <ion-button class="boton-tecopescacd"  title="eliminar"  *ngIf="value.id_compra"
+                           (click)="eli(value)"
+                              > 
+                              <ion-icon name="trash-outline"></ion-icon>
+                            </ion-button>
+
+                           
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                    </ngx-datatable>
+                </div>
+            </ion-col>
+            <ion-col size-lg="1" size-md="1" size-sm="0"  size-xs="0" ></ion-col>
+        </ion-row>
+    </ion-grid>
+
+ 
+
+</ion-content>

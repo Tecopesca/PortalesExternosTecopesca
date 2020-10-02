@@ -1,0 +1,75 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import '../../../assets/font-teco-v1.0/demo-files/demo.css';
+@import '../../../assets/font-teco-v1.0/style.css';
+
+$datatable-header-cell-background2: #662D91 !default;
+$datatable-header-cell-color2: white !default;
+
+.bordes-redondeados {
+    
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.poppru{
+ 
+
+
+    .bor{
+        margin-top: 20px !important;
+    }
+    .busqueda {
+        height: 25px;
+        font-weight: bold;
+        font-size: 0.8em;
+        margin-top: 0;
+        width: 75px;
+        --background: #662D91 ;
+        --background-hover : #662D91 ;
+      }
+
+}
+
+ion-item { --border-style: none }
+ion-input{
+  box-shadow: 6px 6px 0px white;
+   
+   background-color: white !important;
+}
+.boton-tecopesca {
+    --background: rgba(195,173,212,1);
+    --color: rgba(128,78,162,1);
+    --padding-bottom: 0px;
+    --padding-end: 4px;
+    --padding-start: 4px;
+    --padding-top: 0px;
+    font-size: 15px;
+    --background-hover : none ;
+    --background-hover-opacity:0.7;
+  }
+
+  .leyenda-boton {
+    text-align: left;
+    font-style: italic;
+    font-size: 0.6em;
+    color: rgba(153,153,153,1);
+}
+.button-proveedor {
+  --background: rgba(195,173,212,1);
+  --color: rgba(102,45,145,1);
+  --padding-end: 4px;
+  --padding-start: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  --background-hover : none ;
+  --background-hover-opacity:0.7;
+}  
+  .actualizacion {
+    text-align: right;
+ 
+}
+

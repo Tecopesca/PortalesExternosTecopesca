@@ -1,0 +1,169 @@
+@import '~@swimlane/ngx-datatable/index.css';
+  @import '~@swimlane/ngx-datatable/themes/material.scss';
+  @import '~@swimlane/ngx-datatable/assets/icons.css';
+
+
+.concursod{
+
+  
+  $datatable-header-cell-background22: #662D91 !default;
+  $datatable-header-cell-color2: white !default;
+  app-header{
+  
+    width: 100%;
+   }
+  .bor{
+    height: 5%;
+  }
+  .bordes-redondeados2 {
+      
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      
+  }
+   .datatable-header {
+          .datatable-header-cell {
+              padding: 0 !important;
+              background-color: $datatable-header-cell-background22 !important;
+              color: $datatable-header-cell-color2 !important;
+              text-align: center !important;
+              vertical-align: middle !important;
+              font-size: 16px !important;
+              border: rgba(179,179,179,1) solid 1px !important;
+              font-weight: bold!important;
+          }
+      }
+      
+      .datatable-body {
+          .datatable-body-row {
+            .datatable-body-cell {
+              // editado
+              font-size: 15px !important;
+              text-align: center !important;
+              border: rgba(179,179,179,1) solid 1px !important;
+            }
+          } .progress-linear {
+              display: none !important;
+            }
+      
+          
+      }
+  
+       .toolconcurso{
+        --background: #E6E6E6;
+      }
+  
+  
+      ion-segment-button{
+        --indicator-color: #662D91 ;
+        --color-checked	:black;
+      }
+      /////////////bo
+      .boton-tecopescacd {
+        --background: rgba(195,173,212,1);
+        --color: rgba(128,78,162,1);
+        --padding-bottom: 0px;
+        --padding-end: 4px;
+        --padding-start: 4px;
+        --padding-top: 0px;
+        font-size: 15px;
+      }
+      .busqueda {
+        height: 25px;
+        font-weight: normal;
+        font-size: 0.65em;
+        margin-top: 0;
+        width: 75px;
+        --background: rgba(128,78,162,1);
+      }
+      .leyenda-boton {
+        text-align: left;
+        font-style: italic;
+        font-size: 0.7em;
+        color: rgba(153,153,153,1);
+        margin-left: 5px;
+    }
+    .button-proveedor {
+      --background: rgba(195,173,212,1);
+      --color: rgba(102,45,145,1);
+      --padding-end: 4px;
+      --padding-start: 4px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+   
+      font-weight: bold;
+  }  
+      .actualizacion {
+        text-align: right;
+    }
+  
+    @media screen and (max-width: 700px){
+     
+      .datatable-header {
+        .datatable-header-cell {
+            padding: 0 !important;
+            background-color: $datatable-header-cell-background22 !important;
+            color: $datatable-header-cell-color2 !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            font-size: 12px !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+            font-weight: bold!important;
+        }
+    }
+      }
+  
+ 
+      
+
+  .select2-container .select2-selection--single {
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 0.75em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: solid 1px #b7b7b7;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+  }
+
+  .select2-container--default.select2-container--focus .select2-selection--single{
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: solid 1px #b7b7b7;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #999;
+    line-height: 24px;
+    font-style: italic;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #444;
+    line-height: 24px;
+    font-style: italic;
+  }
+  .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #662d91!important;
+    color: white;
+  }
+    
+}
+
+   
+
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #662d91!important;
+  color: white;
+}
+  

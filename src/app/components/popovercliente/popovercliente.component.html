@@ -1,0 +1,38 @@
+
+<ion-content > 
+  
+  <ion-grid fixed class="cont"  >
+    <ion-row class="ti" >
+      
+      <ion-col size-lg="5" size-xs="7" ><h3 style="margin-top: 0px;margin-bottom: 0px; border-bottom: #29ABE2 4px solid; ">TRACKING {{page2}} </h3> </ion-col>  
+    </ion-row>
+ 
+    <ion-row  class="cont">
+     
+      <ion-row   [style]="fondo" class="row1">
+
+      </ion-row>
+
+      <ion-row  size="12" class="row2 row3" > 
+       <ion-col     style=" height: 8%;" size-xs="12"  size="4"  *ngFor="let item of items; let i = index" > 
+                                          
+         <ion-row   > 
+          
+           <ion-col   size="1"  class=" pu r{{i}}"  > <ion-icon  style="margin-left: 45%;" name="ellipse"></ion-icon></ion-col>
+           <ion-col  size="2.3"  class="pu  r{{i}}">   <strong  >{{item.fecham}} </strong>   </ion-col>
+           <ion-col    size="8" class="pu r{{i}}  ">  <strong  >{{item.proceso}} </strong> </ion-col>
+  
+         </ion-row>
+             
+          
+          </ion-col>  
+
+      </ion-row>
+
+
+    </ion-row>
+  
+  </ion-grid>
+
+
+</ion-content>

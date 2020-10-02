@@ -1,0 +1,99 @@
+<ion-header  >
+    <ion-toolbar [style]="fondo" class="fondo">
+        <ion-buttons slot="start">
+            <ion-img class="img-header" src="../../../assets/icon/icon.svg" (click)="ini()"></ion-img>
+        </ion-buttons>
+        <ion-buttons slot="end">
+                  <ion-grid>
+                 <ion-row >
+                  <ion-button style="height: 100%;  "  (click)="salir()" >
+                    <div >
+                      <ion-icon slot="icon-only" class="ico2"  name="log-out-outline"> </ion-icon>
+                         <br>
+                      <label  style="margin-left:0 ;font-size: 10px;  text-transform: none;">Salir</label>
+                    </div>
+                  </ion-button>
+                  <div style="margin-top: 2%;margin-left: 12%;" >
+                    <ion-button class="fo"   (click)="toggleMenu()" >
+                      <div >
+                        <ion-icon slot="icon-only" class="{{lug}}"    name="menu"></ion-icon>
+                      </div>
+                    </ion-button>
+                    <br>
+                      <label  class="menuico">Menú</label>
+                  </div>
+                 </ion-row >
+                  </ion-grid>
+        </ion-buttons>
+
+        <ion-title slot="start" size="small"><label style="width: 100%"> <strong>{{titulo}} </strong></label></ion-title>
+    </ion-toolbar>
+
+    <!--  <ion-toolbar   [style]="fondo" class="fondo"  >-->
+    <!--    <ion-grid   style=" height: 85px;" >  -->
+    <!--      <ion-row    style=" height: 100%;" >-->
+    <!--        <ion-col size="0.5" > </ion-col>-->
+    <!--        <ion-col   size-lg="2.3" size-md="3" size-sm="4" size-xs="5"   class="don"  style="  cursor: pointer;" (click)="ini()"  >-->
+    <!--         -->
+    <!--        </ion-col>-->
+
+    <!--        <ion-col   size-lg="0.4"  size-xs="0"  >-->
+    <!--    -->
+    <!--        </ion-col>-->
+
+    <!--        <ion-col   size-lg="6" size-md="6" size-sm="6" size-xs="5.4"  >-->
+    <!--    -->
+    <!--          <label > {{titulo}}</label>-->
+    <!--    -->
+    <!--        </ion-col >-->
+    <!--    -->
+    <!--    -->
+    <!--      </ion-row >-->
+
+    <!--      -->
+    <!--    </ion-grid>-->
+    <!--   -->
+    <!--  -->
+    <!--    <ion-buttons   slot="end">    -->
+    <!--      <ion-grid>-->
+    <!--     <ion-row  >-->
+    <!--      <ion-button style="  margin-top: 5%;"  (click)="salir()" > -->
+    <!--        <div >-->
+    <!--          <ion-icon slot="icon-only" class="ico2"  name="log-out-outline"> </ion-icon>-->
+    <!--             <br>-->
+    <!--          <label  style="margin-left:0 ;font-size: 10px;"   >Salir</label>-->
+    <!--        </div>-->
+    <!--     -->
+    <!--      </ion-button>-->
+    <!--      -->
+    <!--      <div style="margin-top: 2%;margin-left: 12%;" >-->
+    <!--        <ion-button class="fo"   (click)="toggleMenu()" > -->
+    <!--          <div >-->
+    <!--            <ion-icon slot="icon-only" class="ico"    name="menu"></ion-icon>    -->
+    <!--          </div>  -->
+    <!--        </ion-button>-->
+    <!--        <br>-->
+    <!--          <label  class="menuico">MENU</label>-->
+    <!--      </div>-->
+    <!--      -->
+    <!--      -->
+    <!--     </ion-row >-->
+    <!--  -->
+    <!--        -->
+    <!--      </ion-grid>-->
+    <!--        -->
+    <!--  -->
+    <!--        -->
+    <!--        -->
+    <!--      </ion-buttons>-->
+    <!--  -->
+    <!--    -->
+    <!--     -->
+
+    <!--  </ion-toolbar>-->
+</ion-header>
+
+<!--<ion-content fullscreen="true">-->
+
+
+<!--</ion-content>-->

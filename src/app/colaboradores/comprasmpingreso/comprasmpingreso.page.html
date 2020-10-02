@@ -1,0 +1,506 @@
+<app-header titulo ="Compra de Materia Prima" lug="colaboradores"> </app-header> 
+
+
+<ion-content class="comprasmpingreso" >
+
+
+  <ion-grid fixed>
+
+     <ion-row class="bor">
+          <ion-col   size-lg="0.9"  size-md="1.3"  size-sm="3"  size-xs="3"  >
+            <div  align="start">
+               <label   class="lab"  >Mes y Año</label>
+             </div>
+          </ion-col>
+
+          <ion-col size-lg="2.3" >
+            <label class="labred "  > {{fecham}}
+              <input  class="sinborde"  type="date"  (change)="mydate1(fecha);" [(ngModel)]="fecha" >
+            </label>  
+          </ion-col>
+
+
+     </ion-row > 
+
+     <form [formGroup]="firstFormGroup">
+     <ion-row class="bor  color">
+
+      <ion-col   size-lg="1" size-md="4.6"  size-sm="3" size-xs="4"  class="color"  >
+        <div  align="start">
+           <label   class="lab"  >No. compra</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.9" size-md="3.7"  size-sm="8" size-xs="8"   class="color" >
+        <div align="start"  >
+          <ng-select2 
+          formControlName="compra" 
+          [width]="205"          
+          [data]="items2"
+          [placeholder]="'Seleccione No. compra'"
+          [options]="options" 
+          (valueChanged)="Compra_traer_por_cabecera($event)" >           	
+          </ng-select2>
+         </div>
+      </ion-col>
+    
+      <ion-col   size-lg="1.2"  size-md="4.6"  size-sm="3" size-xs="4"   class="color" >
+        <div  align="start">
+           <label   class="lab"  >Grupo  compra</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.9"  size-md="3.7"  size-sm="4" size-xs="4"  class="color"  >
+        <div align="start"  >
+          <ng-select2         
+          formControlName="grutipo"   
+          [data]="items3"
+          [placeholder]="'Seleccione Grupo  compra'"
+          [options]="options"
+          (valueChanged)="onTagChanged($event)">
+          </ng-select2>
+
+         </div>
+      </ion-col>
+      
+      <ion-col   size-lg="1.9"  size-md="3.7"  size-sm="4" size-xs="4"  class="color"  >
+        <div align="start"  >
+          <ng-select2            
+          formControlName="tipo" 
+          [data]="items4"
+          [placeholder]="'Seleccione Tipo  compra'"
+          [options]="options"
+          (valueChanged)="onTagChanged3($event)" 
+          >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col *ngIf="this.codigo_b"  size-lg="0.9" size-md="4.6" size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+          <ion-input class="int"  formControlName="codigo_m"    placeholder="Código "> </ion-input>
+         </div>
+        </ion-col>
+      
+      <ion-col   size-lg="1.3" size-md="4.6" size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Término compra*</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.9"  size-md="3.7" size-sm="8" size-xs="8" class="color"  >
+        <div align="start"  >
+          <ng-select2 
+          formControlName="termino" 
+          [width]="169"
+          [data]="items5"
+          [placeholder]="'Seleccione Término compra*'"
+          [options]="options"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+    
+      <ion-col   size-lg="1" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Materia prima*</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.9" size-md="3.7" size-sm="8" size-xs="8"  class="color"  >
+        <div align="start"  >
+          <ng-select2 
+          [width]="150"
+          [data]="items6"
+          [placeholder]="'Seleccione Materia '"
+          [options]="options" 
+          disabled="true"
+          formControlName="materia"  
+          >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+     <ion-col   size-lg="1.9" size-md="4.6" size-sm="3" size-xs="4"  class="color"  >
+      <div  align="start">
+         <label   class="lab"  >Fecha estimada de llegada*</label>
+       </div>
+    </ion-col>
+
+    <ion-col   size-lg="1.8" size-md="3.7"  size-sm="8" size-xs="8" class="color"  >
+      <div align="start"  >
+        <input   style=" height: 25px; width: 100%; text-align: center;
+        border: solid 1px #b7b7b7;
+         border-radius: 10px 10px 0 0;
+         font-size: 0.7em;font-weight: bold;
+       padding-top: 5px ;
+       padding-bottom: 5px ;
+       padding-left: 5px ;"  type="date"   formControlName="fecha"    >
+ 
+
+       </div>
+    </ion-col>
+
+     </ion-row>
+    </form>
+    
+    <form [formGroup]="secondFormGroup">
+     <ion-row class=" color" style="border-top: #F7931E 1px solid;margin-top: 1%; ">
+      
+      <ion-col size="12" style="font-weight: bold;">
+       Editar detalle barcos
+      </ion-col>
+      
+      <ion-col   size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Proveedor</label>
+         </div>
+      </ion-col> 
+
+      <ion-col   size-lg="4.8" size-md="3.7" size-sm="8" size-xs="7"  class="color"  >
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          formControlName="proveedor" 
+          [placeholder]="'Seleccione Proveedor '"
+          [options]="options"
+          [data]="items8"   >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col size="0.3" style="padding: 0;margin: 0; margin-right: 10px; " class="actualizacion">
+        <ion-button (click)="nuproveedor()" style="padding: 0;margin: 0;"    class="button-proveedor">
+          <ion-icon     name="add-outline"></ion-icon>
+        </ion-button> 
+      </ion-col>
+
+      <ion-col  size-lg="0.5" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Barco</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="4.8" size-md="3.7" size-sm="8" size-xs="7"  class="color"  >
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          formControlName="barco"
+          [placeholder]="'Seleccione Barco'"
+          [options]="options"
+          [data]="items9"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+          <ion-col size="0.6" >
+            <ion-item class="items"  > 
+              <ion-label style="margin-top: 0;margin-left: 10px;" class="lab" ></ion-label>
+              <ion-checkbox style="margin-top: 5px;" class="tm" formControlName="newb"  ></ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+        
+       <ion-row *ngIf="secondFormGroup.value.newb==true" style="width: 100%" >
+        <form style="width: 100%;" [formGroup]="fortyFormGroup"> 
+          <ion-row>
+            <ion-col  size-lg="1.2" size-md="4.6"  size-sm="3" size-xs="4"    >
+              <div  align="start">
+                 <label   class="lab"  >Nombre de Barco</label>
+               </div>
+            </ion-col>
+
+            <ion-col   size-lg="2.2" size-md="3.7" size-sm="8" size-xs="7"     >
+              <div align="start"  >
+                <input class="int" formControlName="nombreb"  placeholder="Ingrese un nombre"  />
+      
+               </div>
+            </ion-col>
+
+       
+       <ion-col  size-lg="1" size-md="4.6"  size-sm="3" size-xs="4"    >
+          <div  align="start">
+             <label   class="lab"  >Tipo de Barco</label>
+           </div>
+        </ion-col>
+      
+        <ion-col   size-lg="2.2" size-md="3.7" size-sm="8" size-xs="7"     >
+          <div align="start"  >
+            <ng-select2           
+            [width]="150"
+            formControlName="tipob"
+            [placeholder]="'Seleccione Tipo'"
+            [options]="options"
+            [data]="items41"
+              >           	
+            </ng-select2>
+  
+           </div>
+        </ion-col>
+
+
+      </ion-row>
+      </form>
+       </ion-row> 
+      
+      
+      <ion-col   size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Bandera</label>
+         </div>
+      </ion-col>
+
+      
+      <ion-col   size-lg="2" size-md="3.7" size-sm="8" size-xs="8"  class="color"  >
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          formControlName="bandera"
+          [placeholder]="'Seleccione Bandera '"
+          [options]="options"
+          [data]="items12"  
+          >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.1" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Materia prima*</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="2" size-md="3.7" size-sm="8" size-xs="8"  class="color"  >
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          formControlName="Materia"
+          [placeholder]="'Seleccione Materia '"
+          [options]="options"
+          [data]="items10" 
+          disabled="true" >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.1" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Peso estimado</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1" size-md="1.8" size-sm="4" size-xs="4"  class="color"  >
+        <div align="start"  >
+          <input type="number"  min="0" pattern="^[0-9]+"  class="prue " formControlName="peso"  style="width: 100%;padding-left: 5px;"   placeholder="Peso"  />
+
+         </div>
+      </ion-col>
+      
+      <ion-col   size-lg="0.8" size-md="1.8" size-sm="4" size-xs="4"  class="color"  >
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          formControlName="unidad"
+          [placeholder]="'Seleccione unidad '"
+          [options]="options"
+          [data]="items11" 
+          >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+     </ion-row>
+    </form>
+
+    <form [formGroup]="thirdFormGroup">
+     <ion-row class=" color" style="border-top: #F7931E 1px solid;margin-top: 1%; ">
+      
+      <ion-col size="12" style="font-weight: bold;">
+      Características adicionales 
+      </ion-col>
+     
+      <ion-col size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4" >
+        <ion-item class="items" > 
+          <ion-label style="margin-top: 0;" class="lab" >FIP</ion-label>
+          <ion-checkbox style="margin-top: 5px;"  formControlName="FIP"  class="tm"  ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+     
+      <ion-col size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4">
+        <ion-item class="items" > 
+          <ion-label style="margin-top: 0;" class="lab" >FOS</ion-label>
+          <ion-checkbox formControlName="FOS"   style="margin-top: 5px;" class="tm"   ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4" >
+        <ion-item class="items"  > 
+          <ion-label style="margin-top: 0;margin-left: 0;" class="lab" >MSC</ion-label>
+          <ion-checkbox style="margin-top: 5px;" class="tm" formControlName="MSC"  ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+
+      <ion-col size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4" >
+        <ion-item class="items"  > 
+          <ion-label style="margin-top: 0;margin-left: 0px;" class="lab" >UE</ion-label>
+          <ion-checkbox style="margin-top: 5px;" class="tm" formControlName="UE"   ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size-lg="0.8" size-md="4.6"  size-sm="3" size-xs="4" >
+        <ion-item class="items"  > 
+          <ion-label style="margin-top: 0;margin-left: 0px;" class="lab" >OM</ion-label>
+          <ion-checkbox style="margin-top: 5px;" class="tm" formControlName="OM"  ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+
+      <ion-col size-lg="1.2" size-md="4.6"  size-sm="3" size-xs="4" >
+        <ion-item class="items"  > 
+          <ion-label style="margin-top: 0;margin-left: 0px;" class="lab" >FAD FREE</ion-label>
+          <ion-checkbox style="margin-top: 5px;" class="tm"  formControlName="FAD"  ></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <ion-col   size-lg="1.3" size-md="4.6"  size-sm="3" size-xs="4"  class="color" >
+        <div  align="start">
+           <label   class="lab">Representante legal</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="2" size-md="3.7" size-sm="3" size-xs="7"  class="color"  >
+        <div align="start"  >
+          <input
+          placeholder="Seleccione Representante legal"
+          class="lal"
+          formControlName="legal"
+          class="labred"
+          />
+          
+
+         </div>
+      </ion-col>
+  
+    
+     </ion-row>
+    </form>
+
+     <ion-row >
+      <ion-col  size-lg="1" size-md="210"
+      size-xs="4"  size-sm="4">
+      <ion-button   (click)="cancelar('no')"  class="busqueda">Cancelar</ion-button>
+     </ion-col>
+      <ion-col  size-lg="1" size-md="210"
+      size-xs="4"  size-sm="4">
+      <ion-button  (click)="nuevo()"   class="busqueda">Nuevo</ion-button>
+      </ion-col>
+      
+      <ion-col  size-lg="1" size-md="2"
+      size-xs="4"  size-sm="4">
+      <ion-button    (click)="guardar()"  class="busqueda">Guardar</ion-button>
+      </ion-col>
+
+     </ion-row>
+     
+     <ion-row style="padding: 0; margin-top: 1%;">
+      <ion-col  size-lg="10" size-md="10"
+      size-xs="10"  size-sm="10">
+       </ion-col>
+      <ion-col size="2" style="padding: 0;margin: 0; " class="actualizacion">
+        <ion-button  style="padding: 0;margin: 0;"    class="button-proveedor">
+          <ion-icon (click)="actualizar()"  name="reload-outline"></ion-icon>
+        </ion-button> 
+        <span class="leyenda-boton">Actualizar</span>
+      </ion-col>
+
+
+     </ion-row>
+    
+     <ion-row  >
+     
+      
+          
+      <ion-col size-lg="12" size-md="12" size-sm="12"  size-xs="12"  >
+          <div>
+              <ngx-datatable
+                  #mydatatable
+                  class="material bordes-redondeadoscompr" 
+                  [limit]="10"
+                  [columnMode]="ColumnMode.force"
+                  footerHeight="50"
+                  rowHeight="auto"
+                  [rows]="items"
+                  [loadingIndicator]="true"
+                  [scrollbarH]="true"
+                  
+              > 
+              <ngx-datatable-column name=""  [cellClass]="getCellClass"  [width]="50" prop="color">
+                <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <div style="height: 25px;" class="{{value}}">{{value}}</div>
+                </ng-template> 
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Código compra" [cellClass]="getCellClass" [width]="130" prop="codigo"></ngx-datatable-column>
+              <ngx-datatable-column name="Tipo compra" [cellClass]="getCellClass"    prop="tipo"></ngx-datatable-column>
+              <ngx-datatable-column name="Proveedor" [cellClass]="getCellClass"   prop="proveedor"></ngx-datatable-column>
+              <ngx-datatable-column name="Barco" [cellClass]="getCellClass"  [width]="100"  prop="barco"></ngx-datatable-column>
+              <ngx-datatable-column name="Viaje"  [cellClass]="getCellClass"  [width]="50"  prop="viaje"></ngx-datatable-column>
+              <ngx-datatable-column name="Materia prima" [cellClass]="getCellClass"  [width]="120" prop="materia"></ngx-datatable-column>
+              <ngx-datatable-column name="Peso"  [cellClass]="getCellClass"   [width]="60"  prop="peso"></ngx-datatable-column>
+              <ngx-datatable-column name="Estado"  [cellClass]="getCellClass"  [width]="100"  prop="estado2"></ngx-datatable-column>
+              <ngx-datatable-column name=""   [cellClass]="getCellClass"   prop="estado">
+                
+                <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <ul style="padding-left: 18px !important;margin-top: 0;margin-bottom: 0;" *ngIf="value.estado!=null" >
+                    <li *ngFor="let item  of value.estado;"  style="width: 100%;padding-left: 2px !important;text-align: start;" class="{{item.estado}}" > {{item.nombre}} </li>
+                  </ul>
+                </ng-template>
+
+              </ngx-datatable-column>
+
+               <ngx-datatable-column name=""  [cellClass]="getCellClass"  [width]="40" prop="menu">
+                <ng-template  style="text-align: center;" ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <div style="  height: 50px;">
+                    <div  style="position: absolute; width: 10px;    text-align:center" class="dropdown">
+                       
+                      <button (click)="prueb($event)"   style=" position: absolute; width: 10px; background-color: transparent; border: transparent;color: black; "class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     
+                       
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                      <div class="dropdown-menu"    aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item"  (click)="Editar(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px ">Editar</a> 
+                        <a class="dropdown-item"  (click)="alert(value.idcompra)"  style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px " >Eliminar</a> 
+                        <a class="dropdown-item" (click)="copiar(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid; font-size: 12px;">Copiar</a> 
+                        <a class="dropdown-item"  (click)="poponoti(value.noti)"   style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px ">Notificar Break Down</a> 
+                        <a class="dropdown-item"  (click)="imprimir(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px " >Imprimir contrato</a> 
+                        <a class="dropdown-item"  (click)="rut('/colaboradores/compras_materia_prima/requisitos',value)" style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px " >Administrar requisitos compra</a> 
+                        <a class="dropdown-item"  (click)="rut('/colaboradores/compras_materia_prima/precios',value)"  style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px " >Precios/Condiciones </a> 
+                        <a class="dropdown-item"   style="border-bottom: rgba(179,179,179,1) 1px solid ;font-size: 12px  " >Materia prima armador</a> 
+                      </div>
+                    </div>
+                  </div>
+                 
+                 
+                </ng-template>
+               </ngx-datatable-column>
+             
+                  
+              </ngx-datatable>
+               
+          </div>
+      </ion-col>
+      <ion-col size-lg="1" size-md="1" size-sm="0"  size-xs="0" ></ion-col>
+     </ion-row>
+
+</ion-grid>
+
+</ion-content>

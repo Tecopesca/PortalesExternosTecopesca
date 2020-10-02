@@ -1,0 +1,187 @@
+<ion-header>
+  <label style="border-bottom: #F7931E 4px solid; margin-bottom: 0; margin-left: 15%;font-weight: bold;" >NUEVO PROVEEDOR</label>
+</ion-header>
+
+
+<ion-content >
+  <div style=" background-color: #f2f2f2;" >
+    <ion-grid fixed>
+     <ion-row style="justify-content: center;">
+
+      <ion-col size="1.5"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Identificación</label>
+        </div>
+      </ion-col>
+
+      <ion-col size="3.5" >
+        <div align="start"  >
+           
+          <ng-select2           
+          [width]="150"
+          [(ngModel)]="fil.identificacion"
+          [placeholder]="'Seleccione Identificacion'"
+          [options]="options"
+          [data]="items"
+          [value]="fil"
+           
+          >           	
+          </ng-select2> 
+         
+         </div>
+      </ion-col>
+      
+      <ion-col size="2.7"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Código de Indentificación</label>
+        </div>
+      </ion-col>
+
+      <ion-col size="3.5">
+  
+          <ion-input   disabled="{{this.codigo_id}}"  (ionBlur)="prue2()" (click)="prue()" class="inp"  [(ngModel)]="fil.codigo_id" style="text-align: left;background-color: transparent;"   placeholder="Código de Indentificación" >
+        </ion-input>
+      </ion-col>
+      
+      
+      <ion-col size="1.5"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Razón Social</label>
+        </div>
+      </ion-col>
+
+      <ion-col size="9.7">
+        <ion-input  class="inp"  style="text-align: left;" [(ngModel)]="fil.razon"  placeholder="Razón Social" >
+           
+        </ion-input>
+       </ion-col>
+
+       
+
+       
+       <ion-col size="1.5"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Correo </label>
+        </div>
+      </ion-col>
+
+      <ion-col size="9.7">
+        <form [formGroup]="firstFormGroup">
+        <ion-input   class="inp" style="text-align: left;" formControlName="correo"   placeholder="Correo" >
+        </ion-input>
+       </form>
+
+      </ion-col>
+
+      <ion-col size="1.5"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Grupo de Compra </label>
+        </div>
+      </ion-col>
+
+      <ion-col size="9.7"> 
+        <div align="start"  >
+          <ng-select2           
+          [width]="150"
+          [(ngModel)]="fil.nacional"
+          [placeholder]="'Seleccione Nacional'"
+          [options]="options"
+          [data]="items3"
+          [value]="fil"
+           
+          >           	
+          </ng-select2>   
+        
+          
+         </div>
+      </ion-col>
+
+
+       <ion-col size="1.5"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >País </label>
+        </div>
+      </ion-col>
+      
+    
+      <ion-col size="2.9"> 
+        
+        <div align="start"  >
+       
+          <!--
+            <select  class="inp " 
+          
+          [(ngModel)]="fil.pais" style="background-color: transparent;"  >
+             
+                <option   value="{{item2.id}}" *ngFor="let item2  of items2"  >{{item2.text}}</option>
+            
+          </select>
+         -->
+
+          <ng-select2           
+          [width]="150"
+          [(ngModel)]="fil.pais"
+          [placeholder]="'Seleccione Pais'"
+          [options]="options"
+          [data]="items2"
+          [value]="fil"
+          (ionFocus)="prue()"
+          >           	
+          </ng-select2>   
+        
+         </div>
+      </ion-col>
+
+      <ion-col size="1.2"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Provincia </label>
+        </div>
+      </ion-col>
+
+      <ion-col size="2.3"> 
+        <ion-input  class="inp" style="text-align: left;" [(ngModel)]="fil.provincia"  placeholder="Provincia" >
+           
+        </ion-input>
+      </ion-col>
+
+      <ion-col size="1"> 
+        <div  align="start">
+       <label   style=" font-size: 0.7em;font-weight: bold;"  >Ciudad </label>
+        </div>
+      </ion-col>
+
+      <ion-col size="2.3"> 
+        <ion-input  class="inp" style="text-align: left;" [(ngModel)]="fil.ciudad"  placeholder="Ciudad" >
+           
+        </ion-input>
+      </ion-col>
+
+
+      </ion-row>
+      
+      <ion-row style="justify-content: center; margin-top: 5px;margin-bottom: 5px;" >
+        <ion-col size="7"> 
+        </ion-col>
+
+        <ion-col size="2.5">
+          <button  (click)="limpiar()"  style="border-radius: 10px 10px 10px 10px; font-size: 12px; width: 100%;height: 100%;background: #F7931E; color: white;" >
+            LIMPIAR REGISTRO 
+          </button>
+        </ion-col>
+
+          <ion-col size="1.7">
+              
+            <button  (click)="guardar()"  style="border-radius: 10px 10px 10px 10px;font-size: 12px; width: 100%;height: 100%;background: #F7931E;color: white;">
+             GUARDAR
+            </button>
+          
+           </ion-col>
+ 
+
+       </ion-row>
+      
+
+      
+    </ion-grid>
+  </div>
+</ion-content>

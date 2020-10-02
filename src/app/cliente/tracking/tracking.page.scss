@@ -1,0 +1,209 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import '../../../assets/font-teco-v1.0/demo-files/demo.css';
+@import '../../../assets/font-teco-v1.0/style.css';
+
+$datatable-header-cell-background2: rgba(41,171,224,1) !default;
+$datatable-header-cell-color2: white !default;
+//app-header{
+//
+//    width: 100%;
+//    //height: 12%;
+//}
+
+.bordes-redondeados6 {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+
+
+.Tracking{
+
+
+    .otrue{
+        background-color: #f2f2f2 ;
+    }
+    
+    .select2-container .select2-selection--single {
+        font-size: 0.75em;
+        padding-top: 0px;padding-bottom: 0px;
+        border: #999999 1px solid;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+    }
+    
+    .select2-container--default.select2-container--focus .select2-selection--single{
+        padding-top: 0px;padding-bottom: 0px;
+        border: #999999 1px solid;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+     }
+     
+   
+    span.select2-selection.select2-selection--single {
+        outline: none;
+    }
+    
+    .bo1{
+        border-top-left-radius: 10px;
+    }
+    
+    .bo2{
+        border-top-right-radius: 10px;
+    }
+    
+    .but4 {
+        height: 25px;
+        font-weight: normal;
+        font-size: 0.65em;
+        margin-top: 0;
+        width: 75px;
+        --background: #29ABE2  ;
+    }
+    
+    .titulo,.but4{
+        background-color: #29ABE2  ;
+        color: white;
+    }
+    
+    .pru4 ,.titulo{
+        border: #999999 1px solid;
+        text-align: center;
+    }
+    
+    .cen2{
+        justify-content: center;
+    }
+    
+    .cen{
+        justify-content: center;
+    }
+    
+    .bortr{
+        height: 10%;
+    }
+    
+    .busqueda4 {
+      height: 25px;
+      font-weight: normal;
+      font-size: 0.65em;
+      margin-top: 7px;
+      width: 75px;
+      --background: #29ABE2  ;
+    }
+
+    .boton-tecopesca {
+        padding: 5px;
+        background-color: rgba(171,222,243,1);
+        color: rgba(41,171,226,1);
+        border-radius: 5px;
+        font-size: 25px;
+        margin: 2px;
+        .teco-ojo-teco {
+            color: rgba(41,171,226,1);
+        }
+    }
+    
+     .comb{
+        padding-top: 25px;
+        font-size: 15px;
+     }
+    
+     .label-clientetr {
+        @media screen and (max-width: 970px) {
+            text-align: left;
+        }
+        @media screen and (min-width: 970px) {
+             text-align: left;
+        }
+    
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+        }
+    }
+    .select2-selection__rendered {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8em;
+        font-style: italic;
+    }
+
+    .datatable-body {
+        .datatable-body-row {
+          .datatable-body-cell {
+            padding: 0 !important;
+            text-align: center !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+          }
+        }
+        .progress-linear {
+            display: none !important;
+        }
+    }
+    
+
+}
+
+
+
+
+
+@media screen and (max-width: 970px) {
+    
+   
+    .Tracking{
+        .bortr{
+            height: 0;
+        }
+        .datatable-header {
+            .datatable-header-cell {
+                padding: 0 !important;
+                background-color: $datatable-header-cell-background2 !important;
+                color: $datatable-header-cell-color2 !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                font-size: 15px !important;
+                border: rgba(179,179,179,1) solid 1px !important;
+             
+            }
+        }
+
+    }
+    
+ }
+
+ @media screen and (min-width: 974px) {
+    
+    
+    .Tracking{
+        .eli{
+            display: none;
+         
+             }
+        .datatable-header {
+            .datatable-header-cell {
+                padding: 0 !important;
+                background-color: $datatable-header-cell-background2 !important;
+                color: $datatable-header-cell-color2 !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                font-size: 20px !important;
+                border: rgba(179,179,179,1) solid 1px !important;
+                font-weight: bold!important;
+            }
+        }
+
+    }
+    
+ }
+
+ .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: rgba(41,171,224,1)!important;    
+    color: white;
+}
+    

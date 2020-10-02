@@ -1,0 +1,107 @@
+<app-header titulo ="Datos Proveedor" lug="proveedores"> </app-header> 
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" size-xs="0" size-sm="1" size-lg="2"></ion-col>
+      <ion-col size="8" size-xs="12" size-sm="10" size-lg="8">
+        <form (ngSubmit)="logForm()" (ngSubmit)="guardarCambios()">
+
+          <!-- <ion-grid>
+            <ion-row>
+              <ion-col size="10"></ion-col>
+              <ion-col size="2" class="actualizacion">
+                <ion-button class="button-proveedor">
+                  <ion-icon name="reload-outline"></ion-icon>
+                </ion-button> 
+                <span class="leyenda-boton">Actualizar</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Nombre y Apellido*</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <input type="text" [(ngModel)]="campo.razonSocial" name="razonSocial" class="input-proveedor" readonly>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Correo Electrónico*</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <input type="text" [(ngModel)]="campo.email" name="email" class="input-proveedor">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Dirección</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <input type="text" [(ngModel)]="campo.direccion" name="direccion" class="input-proveedor">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Nombre de la Empresa</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <input type="text" [(ngModel)]="campo.empresa" name="empresa" class="input-proveedor" readonly>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Teléfono</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <input type="text" [(ngModel)]="campo.telefono" name="telefono" class="input-proveedor">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="12" size-sm="12" size-lg="3">
+                <label class="label-proveedor">Notas previas</label>
+              </ion-col>
+              <ion-col size="9" size-xs="12" size-sm="12" size-lg="9">
+                <textarea [(ngModel)]="campo.nota" name="nota" class="textarea-proveedor"></textarea>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" size-xs="6" size-sm="6" size-lg="3">
+                <ion-button size="small" (click)="paginaAnterior()" class="boton-cancelar" >
+                  <ion-icon name="close-outline"></ion-icon> Cancelar
+                </ion-button>
+              </ion-col>
+              <ion-col size="3" size-xs="6" size-sm="6" size-lg="3">
+                <ion-button size="small" type="submit" [disabled]="guardarIsDisabled">
+                  <ion-icon name="save-outline"></ion-icon> Guardar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-col>
+      <ion-col size="2" size-xs="0" size-sm="1" size-lg="2"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

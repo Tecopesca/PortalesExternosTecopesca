@@ -1,0 +1,110 @@
+<app-header titulo ="Gestión de Documento" lug="clientes"> </app-header> 
+
+
+<ion-content class="gestioncli" >
+    <ion-grid  fixed  class="center ">
+        <ion-row class="cen2" >
+            
+            <ion-col size-lg="10"  size-md="12">
+                <ion-grid>
+                    <ion-row class="segunda-fila">
+                            <!-- <ion-col size-lg="1"  size="1" size-sm="0" size-xs="0"></ion-col> -->
+                            <ion-col size-lg="4"  size="4" size-sm="12" size-xs="12">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size-xs="12" size-sm="12" size="3" size-lg="3" class="label-cliente">
+                                        <label>Proforma</label>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-sm="12" size="9" size-lg="9">
+                                        <ng-select2 
+                                            [(ngModel)]="fil.slcProforma"
+                                            [data]="proformas"
+                                            [options]="options"
+                                            [placeholder]="'Seleccione una Proforma'"
+                                            [value]="selectedDatas"
+                                            (valueChanged)="onTagChanged($event)"
+                                        >
+                                        </ng-select2>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-col>
+
+                        <ion-col size-lg="4"  size="4" size-sm="12" size-xs="12">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size-xs="12" size-sm="12" size="3" size-lg="3" class="label-cliente">
+                                        <label>Facturas</label>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-sm="12" size="9" size-lg="9">
+                                        <ng-select2
+                                            [(ngModel)]="fil.slcFactura"
+                                            [data]="facturas"
+                                            [options]="options"
+                                            [placeholder]="'Seleccione una Factura'">
+                                        </ng-select2>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-col>
+
+                        <ion-col size-lg="4"  size="4" size-sm="12" size-xs="12">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size-lg="5"  size="5" size-sm="6" size-xs="12">
+                                        <ion-button class="busqueda" (click)="realizarBusqueda()">Buscar</ion-button>
+                                    </ion-col>
+                                    <ion-col size-lg="7"  size="7" size-sm="6" size-xs="0"></ion-col>
+                                </ion-row>
+                            </ion-grid>
+                       </ion-col>
+                    </ion-row>
+                </ion-grid>
+                
+                <ion-grid>
+                    <ion-row>
+                        <!-- <ion-col size-lg="1" size-md="1" size-sm="0"  size-xs="0" ></ion-col> -->
+                        <ion-col size-lg="12" size-md="12" size-sm="12"  size-xs="12">
+                            <div>
+                                <ngx-datatable
+                                    #mydatatable
+                                    class="material bordes-redondeados5"
+                                    [limit]="10"
+                                    [columnMode]="ColumnMode.force"
+                                    footerHeight="50"
+                                    rowHeight="auto"
+                                    [rows]="rows"
+                                    [loadingIndicator]="true"
+                                    [scrollbarH]="true"
+                                >
+                                    <ngx-datatable-column name="Facturas" prop="factura"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Documentos" prop="documento"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Fecha de Entrega" prop="fecha"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Observación" prop="observacion"></ngx-datatable-column>
+                                    <ngx-datatable-column name="" prop="accion">
+                                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                            <button class="boton-tecopesca" (click)="buscarDocumento(value.id_archivo,value.documento)"  *ngIf="value.extension==='.pdf'" title="Ver">
+                                                <span class="teco-ojo-teco">
+                                                    <span class="path1" style="color: rgba(41,171,226,1);"></span>
+                                                    <span class="path2" style="color: rgba(171,222,243,1)"></span>
+                                                    <span class="path3" style="color: rgba(41,171,226,1);"></span>
+                                                </span>
+                                            </button>  
+                                            <button class="boton-tecopesca" (click)="descargarDocumento(value.id_archivo,value.documento)" title="Descargar">
+                                                <span class="teco-download-teco">
+                                                    <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                                </span>
+                                            </button>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+                            </div>
+                        </ion-col>
+                        <ion-col  size-lg="1" size-md="1" size-sm="0"  size-xs="0"></ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+          
+        </ion-row>
+    </ion-grid>
+</ion-content>

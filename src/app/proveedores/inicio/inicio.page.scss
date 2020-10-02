@@ -1,0 +1,170 @@
+.iniciopro{
+
+  app-header{
+
+    width: 100% !important ;
+ }
+.contenedor1
+{
+  display: flex;
+//  justify-content: center;
+  align-items: center;
+ }
+ ion-col:focus {
+    outline: 0;
+ }
+ ul{
+    padding-left: 5%;
+    padding-top: 0px;
+  }
+.icopro2{
+   background:url(../../../assets/img/proveedores/home2.svg)   no-repeat;
+ 
+}
+.icopro1{
+    background:url(../../../assets/img/proveedores/home1.svg)   no-repeat;
+  
+
+ }
+.icopro3{
+    background:url(../../../assets/img/proveedores/home3.svg)   no-repeat;
+    
+
+ }
+
+.tiinici{
+    width: 100%;
+font-size: 30px;
+
+}
+
+.but,.but1{
+     justify-content: center;
+}
+ 
+
+  @media screen and (max-width: 449px){
+    .strong2,.strong21,.strong210{
+       
+        display: none;
+      }
+      .strong1{
+        font-size: 25px;
+      }
+    ion-grid{
+     
+        height: 100%; 
+     }
+     .but{
+        height: 50% !important;
+
+    }
+    .strong1{
+        font-size: 25px;
+      }
+      .strong2,.strong21,.strong210{
+        font-size: 20px;
+        display: none;
+      }
+      .pru12{
+        height: 100% !important;
+      }  
+    .pru,.pru2{
+        height: 50% !important;
+    }
+    
+    .but1{
+        height: 25% !important;
+
+    }
+    .tiinici{
+        width: 100%;
+    font-size: 30px;
+    margin: 5%;
+    }
+    .icopro2,.div1,.icopro3,.icopro1{
+        width: 100%  !important;
+        
+         padding: 0;   
+     }
+   
+   
+   }
+  
+@media screen and (min-width: 450px){
+    .strong1{
+        font-size: 20px;
+        display: none;
+      }
+     .strong2{
+        font-size: 26px;
+        color: black;
+     }
+     .mr{
+      padding-left: 6%!important;
+
+     }
+     .strong21{
+        font-size: 0px;
+       
+      
+      
+      } 
+     .but{
+         margin-top: 5%;
+     }
+     .tiinici{
+         margin-top: 5%;
+     }
+     .icopro2 ,.icopro3,  .icopro1{
+       width: 450px  !important;
+       height: 153px !important;
+ 
+    }
+    .but,.but1{
+        height: 30% !important;
+     }
+     .hopro{
+        width:90%  !important;
+    cursor: pointer;
+
+     }
+    }
+
+
+    @media screen and (min-width: 1000px){
+        .hopro:hover  .contenedor1 .strong2 {
+            color: black;  
+                 font-size: 17px;
+         
+           }
+           .hopro:hover  .contenedor1 .strong21 {
+            color: black;  
+            font-size: 13px;
+           }
+         
+          .strong21{
+           font-size: 0px;
+            margin-top: 3%;
+            color: white;
+           transition: 0.8s;
+         }
+         .strong1{
+           font-size: 26px;
+            color: black;
+           transition: 0.8s;
+           display: none;
+    
+         }
+         .strong2{
+           font-size: 26px;
+           color: black;
+           padding-right: 4%;
+           transition: 0.8s;
+          }
+          
+          
+    }
+
+
+}

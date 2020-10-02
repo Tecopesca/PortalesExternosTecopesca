@@ -1,0 +1,315 @@
+<app-header titulo ="Compra de Materia Prima" lug="colaboradores"> </app-header> 
+
+
+<ion-content class="comprasmp">
+
+<ion-grid fixed>
+ 
+    <ion-row class="bor">
+          <ion-col   size-lg="0.9"   size-md="1.3"  size-sm="3"  size-xs="3"  >
+            <div  align="start">
+               <label   class="lab"  >Mes y Año</label>
+             </div>
+          </ion-col>
+
+          <ion-col size-lg="1.8" >
+            <label class="labred inpt"  > {{fecham}}
+              <input   class="sinborde"  type="date"  (change)="mydate1(fecha);" [(ngModel)]="fecha" >
+            </label>  
+          </ion-col>
+    </ion-row >
+
+     <ion-row class="bor  color">
+
+      <ion-col   size-lg="1.2" size-md="1.7"  size-sm="3" size-xs="3"  class="color"  >
+        <div  align="start">
+           <label   class="lab"  >Código compra</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8" size-md="3.8"  size-sm="8" size-xs="8"   class="color" >
+        <div align="start"  >
+          <ng-select2           
+          [width]="205"
+          [(ngModel)]="fil[2]"
+          [data]="items2"
+          [placeholder]="'Seleccione Código compra'"
+          [options]="options"
+          [value]="fil"  
+          (valueChanged)="onTagChanged($event)">  
+                   	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1"  size-md="2"  size-sm="3" size-xs="3"   class="color" >
+        <div  align="start">
+           <label   class="lab"  >Tipo compra</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8"  size-md="3.7"  size-sm="8" size-xs="8"  class="color"  >
+        <div align="start"  >
+          <ng-select2 
+          
+           
+          [(ngModel)]="fil[3]"
+          [data]="items3"
+          [placeholder]="'Seleccione Tipo compra'"
+          [options]="options"
+          [value]="fil"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1" size-md="1.7" size-sm="3" size-xs="3" class="color" >
+        <div  align="start">
+           <label   class="lab"  >Proveedor</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8"  size-md="3.8" size-sm="8" size-xs="8"class="color">
+        <div align="start"  >
+          <ng-select2 
+          
+          [width]="169"
+          [(ngModel)]="fil[4]"
+          [data]="items4"
+          [placeholder]="'Seleccione Proveedor'"
+          [options]="options"
+          [value]="fil"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.2" size-md="2" size-sm="3" size-xs="3"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Barco</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8"  size-md="3.7" size-sm="8" size-xs="8" class="color"  >
+        <div align="start"  >
+          <ng-select2 
+          
+          [width]="169"
+          [(ngModel)]="fil[5]"
+          [data]="items5"
+          [placeholder]="'Seleccione Barco'"
+          [options]="options"
+          [value]="fil"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+     <!-- Segunda fila-->
+     <ion-col   size-lg="1.2" size-md="1.7"  size-sm="3" size-xs="3"  class="color"  >
+      <div  align="start">
+         <label   class="lab"  >Viaje</label>
+       </div>
+    </ion-col>
+
+    <ion-col   size-lg="1.8" size-md="3.8" size-sm="8" size-xs="8"  class="color"  >
+      <div align="start"  >
+        <ng-select2 
+        
+        [width]="197"
+        [(ngModel)]="fil[6]"
+        [data]="items9"
+        [placeholder]="'Seleccione Viaje '"
+        [options]="options"
+        [value]="fil"  >           	
+        </ng-select2>
+
+       </div>
+    </ion-col>
+
+      <ion-col   size-lg="1" size-md="2"  size-sm="3" size-xs="3"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Materia prima</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8" size-md="3.7" size-sm="8" size-xs="8"  class="color"  >
+        <div align="start"  >
+          <ng-select2 
+          
+          [width]="150"
+          [(ngModel)]="fil[7]"
+          [data]="items7"
+          [placeholder]="'Seleccione Materia '"
+          [options]="options"
+          [value]="fil"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1"  size-md="1.7"  size-sm="3" size-xs="3"  class="color" >
+        <div  align="start">
+           <label   class="lab"  >Peso estimado</label>
+         </div>
+      </ion-col>
+
+      <ion-col   size-lg="1.8" size-md="3.8" size-sm="8" size-xs="8"   class="color" >
+        <div align="start"  >
+          <ng-select2 
+          
+          [width]="150"
+          [(ngModel)]="fil[8]"
+          [data]="items8"
+          [placeholder]="'Seleccione Peso '"
+          [options]="options"
+          [value]="fil"  >           	
+          </ng-select2>
+
+         </div>
+      </ion-col>
+       
+     <ion-col   size-lg="1.2" size-md="2" size-sm="3" size-xs="3"  class="color"  >
+      <div  align="start">
+         <label   class="lab"  >Fecha  de llegada</label>
+       </div>
+    </ion-col>
+
+    <ion-col   size-lg="1.8" size-md="3.7"  size-sm="8" size-xs="8" class="color"  >
+      <div align="start"  >
+        <ng-select2 
+        
+        [width]="150"
+        [(ngModel)]="fil[0]"
+        [data]="items6"
+        [placeholder]="'Seleccione Fecha '"
+        [options]="options"
+        [value]="fil"  >           	
+        </ng-select2>
+
+       </div>
+    </ion-col>     
+          
+     </ion-row>
+
+
+     <ion-row style="padding: 0; margin-top: 1%;">
+      <ion-col  size-lg="10" size-md="10"
+      size-xs="10"  size-sm="10">
+      <ion-button  (click)="updateFilter()" class="busqueda">Buscar</ion-button>
+      </ion-col>
+      <ion-col size="2" style="padding: 0;margin: 0; " class="actualizacion">
+        <ion-button  style="padding: 0;margin: 0;" (click)="actualizar( )"   class="button-proveedor">
+          <ion-icon name="reload-outline"></ion-icon>
+        </ion-button> 
+        <span class="leyenda-boton">Actualizar</span>
+      </ion-col>
+
+
+    </ion-row>
+    
+    <ion-row  >
+            
+      <ion-col size-lg="12" size-md="12" size-sm="12"  size-xs="12"  >
+                  
+          <div>
+            
+
+              <ngx-datatable
+                  #mydatatable
+                  class="material bordes-redondeadoscompr" 
+                  [limit]="10"
+                  [columnMode]="ColumnMode.force"
+                  footerHeight="50"
+                  rowHeight="auto"
+                  [rows]="items"
+                  [loadingIndicator]="true"
+                  [scrollbarH]="true" 
+                  [ngClass]=" this.class > 0 ? 'si' : ''"
+              >
+              
+             
+
+              <ngx-datatable-column name="" [width]="40" prop="color">
+                <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <div style="height: 25px;" class="{{value}}">{{value}}</div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Código compra" [width]="130" prop="codigo"></ngx-datatable-column>
+              <ngx-datatable-column name="Tipo compra"   prop="tipo"></ngx-datatable-column>
+              <ngx-datatable-column name="Proveedor" [width]="100"  prop="proveedor"></ngx-datatable-column>
+              <ngx-datatable-column name="Barco" [width]="100"  prop="barco"></ngx-datatable-column>
+              <ngx-datatable-column name="Viaje"  [width]="50"  prop="viaje"></ngx-datatable-column>
+              <ngx-datatable-column name="Materia prima"[width]="120" prop="materia"></ngx-datatable-column>
+              
+              <ngx-datatable-column name="Peso"  [width]="60"  prop="peso"></ngx-datatable-column>
+              <ngx-datatable-column name="Fecha"  [width]="80"  prop="fecha"></ngx-datatable-column>
+
+              <ngx-datatable-column name="Estado"  [width]="100"  prop="estado2">
+                
+              </ngx-datatable-column>
+              <ngx-datatable-column name=""    prop="estado">
+                
+                <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <ul style="padding-left: 18px !important;margin-top: 0;margin-bottom: 0;" *ngIf="value.estado!=null" >
+                    <li *ngFor="let item  of value.estado;"  style="width: 100%;padding-left: 2px !important;text-align: start;" class="{{item.estado}}" > {{item.nombre}} </li>
+                  </ul>
+                </ng-template>
+              </ngx-datatable-column>
+
+               <ngx-datatable-column name=""  [width]="40" prop="menu">
+                <ng-template  style="text-align: center;" ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  
+                  
+                  <div style="  height: 50px;">
+                    <div  style="position: absolute; width: 10px;    text-align:center" class="dropdown">
+                       
+                      <button (click)="prueb($event)" style=" position: absolute; width: 10px; background-color: transparent; border: transparent;color: black; "class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     
+                       
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                      <div class="dropdown-menu"       aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" (click)="rut('/colaboradores/compras_materia_prima/ingreso',value)"  style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px" >Editar</a>
+                        <a class="dropdown-item"  (click)="alert(value.idcompra)"  style="border-bottom: rgba(179,179,179,1) 1px solid ;font-size: 12px " >Eliminar</a> 
+                        <a class="dropdown-item" (click)="copiar(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid; font-size: 12px;">Copiar</a> 
+                        <a class="dropdown-item"  (click)="confirmar(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid ;font-size: 12px ">Confirmar</a> 
+                        <a class="dropdown-item"  (click)="poponoti(value.noti)"   style="border-bottom: rgba(179,179,179,1) 1px solid ;font-size: 12px ">Notificar Break Down</a> 
+                        <a class="dropdown-item" (click)="imprimir(value.idcompra)" style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px " >Imprimir contrato</a>  
+                        <a class="dropdown-item"  (click)="rut('/colaboradores/compras_materia_prima/requisitos',value)"     style="border-bottom: rgba(179,179,179,1) 1px solid ;font-size: 12px " >Administrar requisitos compra</a> 
+                        <a class="dropdown-item" (click)="rut('/colaboradores/compras_materia_prima/precios',value)" style="border-bottom: rgba(179,179,179,1) 1px solid ; font-size: 12px" >Precios/Condiciones </a> 
+                        
+                      </div>
+                    </div>
+                  </div>
+                 
+                 
+                </ng-template>
+               </ngx-datatable-column>
+
+            
+               
+              </ngx-datatable>
+                
+
+          </div>
+          
+      </ion-col>
+      <ion-col size-lg="1" size-md="1" size-sm="0"  size-xs="0" ></ion-col>
+     </ion-row>
+     
+</ion-grid>
+                   
+                 
+
+
+</ion-content>
+
+ 
+<!--<app-menu
+[isShow]="contextmenu"
+[x]="contextmenuX"
+[y]="contextmenuY">
+</app-menu> -->
+

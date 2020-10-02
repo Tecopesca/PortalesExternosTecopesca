@@ -1,0 +1,24 @@
+[
+    {
+         "name": "Referencia",
+         "prop":"referencia"
+  
+    },
+    {
+      "name": "Actividad",
+      "prop":"actividad"
+  
+  },
+  {
+      "name": "Fecha entrega requerida",
+      "prop":"f_entrega"
+  
+  },
+ 
+  {
+      "name": "Estado",
+      "prop":"estado"
+  
+  }
+  
+  ]

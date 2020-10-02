@@ -1,0 +1,230 @@
+.loginprove{
+
+  .in{ 
+    --padding-start: 20px !important;    
+  }
+   
+  .colum{
+    height: 100% !important; 
+  }
+  //////////////////////////////
+  // para telefono vertical
+  @media screen and (max-width: 589px) and  (min-height:500px){
+    ion-grid ,.cont{
+      height: 614px!important;
+       
+  }
+  
+    .cor{
+      padding: 0;
+      margin: 0;
+    }
+    .ico,.input{
+      width:  100% !important;  
+    background-color: transparent !important;
+    
+    }
+    .icorow,.clienterow,.button2{
+      height: 24% !important;
+      justify-content: center;
+      //background-color: transparent !important;
+    max-height: 149px;
+    }
+     
+    .inputrow{
+      height: 12% !important;
+      width: 100% !important;  
+  
+      justify-content: center;
+    
+    }
+  .clientem{
+    margin-top: 5%!important;  
+  } 
+  .in{
+    width: 72%;
+    height:45px;
+  
+    margin-left: 12%;
+  
+    box-shadow: 6px 6px 0px rgb(180, 170, 182);
+     border-radius: 10px;
+     background-color: #F2F2F2 !important;
+   
+   ///  --background:url(../../../assets/img/clientes/input.png) 0 0 / 100% 100%  no-repeat;
+   }
+   .cur{
+    cursor: pointer;
+    margin-left:3%;
+    width: 73% ;
+    height:45px;
+    margin-left: 12%;
+    background-color: #662D91;
+    border-radius: 15px;
+  }
+   
+  }
+   
+  //////////////telefono hotizon
+  @media screen and (min-width:585px)  and (max-width:900px) and  (max-height:500px){
+     
+    .ico,.input{
+      width:  100% !important;  
+    background-color: transparent !important;
+    
+    }
+    .icorow,.clienterow,.button2{
+      height: 24% !important;
+      justify-content: center;
+      //background-color: transparent !important;
+    max-height: 149px;
+    }
+    .inputrow{
+      height: 15% !important;
+      width: 100% !important;  
+  
+      justify-content: center;
+    
+    }
+    .clientem{
+      margin-top: 5%!important;  
+    } 
+    .in{
+      width: 94%;
+      height:35x;
+      
+      box-shadow: 6px 6px 0px rgb(180, 170, 182);
+       border-radius: 10px;
+       background-color: #F2F2F2 !important;
+     
+       //--background:url(../../../assets/img/clientes/input.png) 0 0 / 100% 100%  no-repeat;
+     }
+     .cur{
+      cursor: pointer;
+      
+      width: 96% ;
+      height:35px !important; 
+  
+      background-color: #662D91;
+      border-radius: 10px;
+    }
+    }
+  
+    @media screen and (max-width:585px) and  (max-height:500px){
+      
+    .ico,.input{
+      width:  100% !important;  
+    background-color: transparent !important;
+    
+    }
+    .icorow,.clienterow,.button2{
+      height: 24% !important;
+      justify-content: center;
+      //background-color: transparent !important;
+    max-height: 149px;
+    }
+    .inputrow{
+      height: 15% !important;
+      width: 100% !important;  
+  
+      justify-content: center;
+    
+    }
+    .clientem{
+      margin-top: 5%!important;  
+    } 
+    .in{
+      width: 50%;
+      height: 100%;
+      margin-left: 25%; 
+      box-shadow: 6px 6px 0px rgb(180, 170, 182);
+       border-radius: 10px;
+       background-color: #F2F2F2 !important;
+     
+      // --background:url(../../../assets/img/clientes/input.png) 0 0 / 100% 100%  no-repeat;
+     }
+     .cur{
+      cursor: pointer;
+      
+      width: 45% ;
+      height:35px !important; 
+      margin-left: 27%; 
+  
+      background-color: #662D91;
+      border-radius: 15px;
+    }
+      }
+  ///////////////escritorio
+  @media screen and (min-width: 600px) and  (min-height:500px) {
+    ion-grid ,.cont{
+      height: 100% !important;
+       }
+  
+    .in{
+      width: 90%;
+      height:45px;
+      box-shadow: 6px 6px 0px rgb(180, 170, 182);
+       border-radius: 10px;
+       background-color: #F2F2F2 !important;
+     
+      // --background:url(../../../assets/img/clientes/input.png) 0 0 / 100% 100%  no-repeat;
+     }
+     .ico{
+  
+      margin-left: 6% !important;;
+  
+   }
+   .cur{
+    cursor: pointer;
+    margin-left:3%;
+  }
+  .icorow,.clienterow,.button2{
+    height: 25% !important;
+    justify-content: center;
+  }
+  
+  .cliente{
+  
+     padding-top: 3%;
+     padding-right: 8%;
+     
+  }
+  .inputrow{
+    height: 12% !important;
+    width: 100% !important;  
+    
+    justify-content: center;
+  
+  }
+  .ico,.button2,.input{
+    width:  100% !important;  
+  background-color: transparent !important;
+   }
+  .cur{
+     
+    width: 90% ;
+    height:45px;
+     color :white;
+    background-color: #662D91;
+    border-radius: 10px;
+  }
+    }
+  
+  
+  
+}
+@media screen and (max-width: 454px){
+  .background-image15{
+     --background: url(../../../assets/img/proveedores/loginfondo12.png) 0 0/100% 100% no-repeat;
+}
+  }
+@media screen and (min-width: 454px){
+  .background-image15{
+    --background: url(../../../assets/img/proveedores/loginfondo12.png) 0 0/100% 100% no-repeat;
+}
+  }
+@media screen and (min-width: 580px){
+  .background-image15{
+    --background: url(../../../assets/img/proveedores/loginfondo.png) 0 0/100% 100% no-repeat;
+}
+  }

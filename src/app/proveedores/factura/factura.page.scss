@@ -1,0 +1,164 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+app-header{
+    width: 100%;
+}
+$datatable-header-cell-background2: rgba(102,45,145,1) !default;
+$datatable-header-cell-color2: white !default;
+
+.label-proveedor {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+
+.boton-proveedor {
+    --background: rgba(102,45,145,1);
+    font-size: 0.6em;
+}
+
+.btn-proveedor-actualizar {
+    --background: rgba(195,173,212,1);
+    --color: rgba(102,45,145,1);
+    --padding-end: 4px;
+    --padding-start: 4px;
+    height: 25px;
+    font-size: 0.6em;
+}
+
+.lbl-proveedor-actualizar {
+    font-size: 0.6em;
+    font-style: italic;
+    color: rgba(153,153,153,1);
+}
+
+.alineacion-derecha {
+    text-align: right;
+}
+.facturapro{
+    .datatable-header {
+        .datatable-header-cell {
+            padding: 0 !important;
+            background-color: $datatable-header-cell-background2 !important;
+            color: $datatable-header-cell-color2 !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            font-size: 18px !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+            font-weight: bold !important;
+        }
+    }
+    
+    .datatable-body {
+        .datatable-body-row {
+          .datatable-body-cell {
+            padding: 0 !important;
+            text-align: center !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+          }
+        }
+        .progress-linear {
+            display: none !important;
+        }
+    }
+    
+    .bordes-redondeados5 {
+        margin-top: 25px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+}
+
+
+.calendario {
+    border: solid 1px rgba(183,183,183,1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 25px;
+    // cursor: pointer;
+    font-style: italic;
+    font-size: 0.7em;
+}
+
+.li-ionic4-datePicker {
+    .modal-wrapper {
+        .ion-page {
+            .footer-md {
+                ion-toolbar {
+                    ion-grid {
+                        ion-row {
+                            ion-col {
+                                ion-button {
+                                    background-color: rgba(102,45,145,1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        background-color: rgba(102,45,145,1);
+        color: white;
+        @media screen and (min-width: 992px) {
+            width: 30%;
+        }
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            width: 50%;
+        }
+    }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #662d91;
+    color: white;
+}
+.select2-container .select2-selection--single {
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 0.75em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: solid 1px #b7b7b7;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single{
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: solid 1px #b7b7b7;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+ }
+
+.sin-padding-vertical {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #999;
+    line-height: 24px;
+    font-style: italic;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #444;
+    line-height: 24px;
+    font-style: italic;
+}
+ 
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #662d91!important;
+    color: white;
+  }
+    

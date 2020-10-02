@@ -1,0 +1,397 @@
+<app-header titulo ="Armador materia prima" lug="colaboradores"> </app-header> 
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size-xs="0" size-sm="0"  size-md="1" size-lg="1" class="sin-padding"></ion-col>
+            <ion-col size-xs="12" size-sm="12"  size-md="10" size-lg="10" class="sin-padding">
+                <ion-row>
+                    <ion-col size-xs="12" size-sm="12" size-md="4" size-lg="4" class="sin-padding">
+                        <div class="div-en-linea">
+                            <label for="fecha" class="label-colaborador">Fecha: </label> 
+                            <input id="fecha" type="date" [(ngModel)]="elementos.fecha" class="text-colaborador2" (ngModelChange)="compraTraerResumen()">
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="8" class="sin-padding">
+                        <ion-row class="sin-padding">
+                            <ion-col size-xs="12" size-sm="12" size="2.5" size-lg="2.5" class="sin-padding">
+                                <label class="label-colaborador">No. compra: </label>
+                            </ion-col>
+                            <ion-col size-xs="12" size-sm="12" size="9.5" size-lg="9.5" class="sin-padding">
+                                <ng-select2 
+                                    [(ngModel)]="elementos.nomCompra"
+                                    [data]="dataNomCompra"
+                                    [options]="configSelect"
+                                    [placeholder]="'Seleccione ...'"
+                                    [allowClear]="true"
+                                    (ngModelChange)="traerEspecies()"
+                                >
+                                </ng-select2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-xs="0.5" size-sm="7" size-md="7" size-lg="7" style="text-align: right;"></ion-col>
+                    <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="2" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="agregarFila()">
+                            <ion-icon name="add"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Añadir nuevo registro</label>
+                    </ion-col>
+                    <ion-col size-xs="2.5" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="guardarArmador()">
+                            <ion-icon name="save-sharp"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Guardar</label>
+                    </ion-col>
+                    <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="cancelarInsercionModificacion()" >
+                            <ion-icon name="close"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Cancelar</label>
+                    </ion-col>
+                    <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="traerEspecies()">
+                            <ion-icon name="refresh"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Actualizar</label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12">
+                        <ngx-datatable
+                            #mydatatable
+                            class="material bordes-redondeados5"
+                            [limit]="10"
+                            [columnMode]="ColumnMode.force"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            [rows]="rows"
+                            [loadingIndicator]="true"
+                            [scrollbarH]="true"
+                        >
+                            <ngx-datatable-column [width]="130" name="Especie" prop="especie">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'especie',value.neo)"
+                                    >
+                                        {{ value.textAlt }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico[rowIndex]['especie']"
+                                        [data]="dataEspecie"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila2(rowIndex,'especie')"
+                                        *ngIf="value.editando"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column  [width]="130" name="Talla" prop="tallaO">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'tallaO',value.neo)"
+                                    >
+                                        {{ value.textAlt }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico[rowIndex]['tallaO']"
+                                        [data]="dataTallaO"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila2(rowIndex,'tallaO')"
+                                        *ngIf="value.editando"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Agrupación Talla" prop="talla">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'talla',value.neo)"
+                                    >
+                                        {{ value.textAlt }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico[rowIndex]['talla']"
+                                        [data]="dataTalla[rowIndex]"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila2(rowIndex,'talla')"
+                                        *ngIf="value.editando"
+                                        [value]="null"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Todos" prop="todos">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'todos',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico[rowIndex]['todos']"
+                                        [data]="dataTodos"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila2(rowIndex,'todos')"
+                                        *ngIf="value.editando"
+                                        [value]="null"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Valor" prop="valor">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'valor',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <input
+                                        autofocus
+                                        *ngIf="value.editando"
+                                        (blur)="actualizarValoresFila($event,rowIndex,'valor')"
+                                        type="text"
+                                        [value]="value.text"
+                                    />
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Asignación" prop="asignacion">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'asignacion',value.neo)"
+                                    >
+                                        {{ value.textAlt }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico[rowIndex]['asignacion']"
+                                        [data]="dataAsignacion"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila2(rowIndex,'asignacion')"
+                                        *ngIf="value.editando"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Observaciones" prop="observaciones">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion(rowIndex,'observaciones',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <input
+                                        autofocus
+                                        *ngIf="value.editando"
+                                        (blur)="actualizarValoresFila($event,rowIndex,'observaciones')"
+                                        type="text"
+                                        [value]="value.text"
+                                    />
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Acción" [width]="80" prop="accion">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <ion-button class="boton-accion" small (click)="eliminarFila(rowIndex)">
+                                        <ion-icon name="trash-outline"></ion-icon>
+                                    </ion-button>
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-xs="0" size-sm="0" size-md="1" size-lg="1" class="sin-padding"></ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col size-xs="0" size-sm="0"  size-md="1" size-lg="1" class="sin-padding"></ion-col>
+            <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="10" class="sin-padding">
+                <ion-row style="display: none;">
+                    <ion-col size-xs="12" size-sm="12" size-md="4" size-lg="4" class="sin-padding">
+                        <div class="div-en-linea">
+                            <label for="fecha2" class="label-colaborador">Fecha: </label> 
+                            <input id="fecha2" type="date" [(ngModel)]="elementos2.fecha" class="text-colaborador2" (ngModelChange)="compraTraerResumen2()">
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="8" class="sin-padding">
+                        <ion-row class="sin-padding">
+                            <ion-col size-xs="12" size-sm="12" size="2.5" size-lg="2.5" class="sin-padding">
+                                <label class="label-colaborador">No. compra: </label>
+                            </ion-col>
+                            <ion-col size-xs="12" size-sm="12" size="9.5" size-lg="9.5" class="sin-padding">
+                                <ng-select2 
+                                    [(ngModel)]="elementos2.nomCompra"
+                                    [data]="dataNomCompra2"
+                                    [options]="configSelect"
+                                    [placeholder]="'Seleccione ...'"
+                                    [allowClear]="true"
+                                    (ngModelChange)="traerDetalleCompra2()"
+                                >
+                                </ng-select2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-xs="0.5" size-sm="7" size-md="7" size-lg="7" style="text-align: right;"></ion-col>
+                    <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="2" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="agregarFila2()">
+                            <ion-icon name="add"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Añadir nuevo registro</label>
+                    </ion-col>
+                    <ion-col size-xs="2.5" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="guardarModificarMasivo2()">
+                            <ion-icon name="save-sharp"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Guardar</label>
+                    </ion-col>
+                    <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="cancelarInsercionModificacion2()" >
+                            <ion-icon name="close"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Cancelar</label>
+                    </ion-col>
+                    <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1" style="text-align: right;">
+                        <ion-button class="boton-accion" small (click)="traerDetalleCompra2()">
+                            <ion-icon name="refresh"></ion-icon>
+                        </ion-button>
+                        <label class="label-accion"> Actualizar</label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12">
+                        <ngx-datatable
+                            #mydatatable
+                            class="material bordes-redondeados5"
+                            [limit]="10"
+                            [columnMode]="ColumnMode.force"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            [rows]="rows2"
+                            [loadingIndicator]="true"
+                            [scrollbarH]="true"
+                        >
+                            <ngx-datatable-column name="Asignación gasto" prop="asignacion">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        class="label-celda"
+                                        *ngIf="!value.editando"
+                                        (click)="habilitarEdicion2(rowIndex,'asignacion',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico2[rowIndex]['asignacion']"
+                                        [data]="dataAsignacion2"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila3(rowIndex,'asignacion')"
+                                        *ngIf="value.editando"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Especificar servicio" prop="servicio">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion2(rowIndex,'servicio',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <ng-select2
+                                        [(ngModel)]="dinamico2[rowIndex]['servicio']"
+                                        [data]="dataServicio2"
+                                        [options]="configSelect"
+                                        [placeholder]="'Seleccione ...'"
+                                        [allowClear]="true"
+                                        (ngModelChange)="actualizarValoresFila3(rowIndex,'servicio')"
+                                        *ngIf="value.editando"
+                                        [value]="null"
+                                    >
+                                    </ng-select2>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Valor" prop="valor">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion2(rowIndex,'valor',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <input
+                                        autofocus
+                                        [(ngModel)]="dinamico2[rowIndex]['valor']"
+                                        *ngIf="value.editando"
+                                        (blur)="actualizarValoresFila3(rowIndex,'valor')"
+                                        type="text"
+                                    />
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Observaciones" prop="observacion">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <div
+                                        title="Click para editar"
+                                        *ngIf="!value.editando"
+                                        class="label-celda"
+                                        (click)="habilitarEdicion2(rowIndex,'observacion',value.neo)"
+                                    >
+                                        {{ value.text }}
+                                    </div>
+                                    <input
+                                        autofocus
+                                        [(ngModel)]="dinamico2[rowIndex]['observacion']"
+                                        *ngIf="value.editando"
+                                        (blur)="actualizarValoresFila3(rowIndex,'observacion')"
+                                        type="text"
+                                    />
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-xs="0" size-sm="0" size-md="1" size-lg="1" class="sin-padding"></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,195 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+.detallecli{
+
+    $datatable-header-cell-background2: rgba(41,171,224,1) !default;
+    $datatable-header-cell-color2: white !default;
+    .select2-container .select2-selection--single {
+        padding-top: 0px;padding-bottom: 0px;
+        border: #999999 1px solid;
+        //border: #29ABE2 1px solid;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+    }
+    
+    ion-grid {
+        padding: 0px;
+    }
+    
+    .select2-container--default.select2-container--focus .select2-selection--single{
+        padding-top: 0px;padding-bottom: 0px;
+        border: #999999 1px solid;
+        //border: #29ABE2 1px solid;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+    }
+     
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: rgba(41,171,224,1);
+        color: white;
+    }
+    
+    span.select2-selection.select2-selection--single {
+        outline: none;
+    }
+    
+    
+    @media screen and (max-width:766px)/*  and (min-width:575px) */ {
+        .banner-detalle {
+            padding-top: 0px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+    }
+    
+    @media screen and (min-width: 767px) and (max-width:970px) {
+        .banner-detalle {
+            padding-top: 10px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+    }
+    
+    @media screen and (min-width: 971px) and (max-width: 1198px) {
+        .banner-detalle {
+            padding-top: 25px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+    }
+    
+    @media screen and (min-width: 1199px) {
+        .banner-detalle {
+            padding-top: 25px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+    }
+    
+    .linea {
+        background-color: rgba(155, 216, 241, 1);
+        padding: 1px;
+        @media screen and (max-width: 970px) {
+            margin-top: 3px;
+        }
+        @media screen and (min-width: 970.1px) {
+            margin-top: 10px;
+        }
+    }
+    
+    .segunda-fila2{
+        font-size: 15px;
+        padding-top: 0px;
+    
+        .combo-disenio {
+            background-color: white;
+            border: solid rgba(155,155,155,1) 1px;
+            border-top-left-radius: 7.5px;
+            border-top-right-radius: 7.5px;
+            height: 15px;
+        }
+    
+        .busqueda {
+            height: 25px;
+            font-weight: normal;
+            font-size: 0.65em;
+            margin-top: 0;
+            width: 75px;
+            --background: #29ABE2  ;
+        }
+    }
+    
+    .bordes-redondeados2 {
+        
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    
+    .pintarfila {
+        background-color: rgba(145, 255, 0, 0.397) !important;
+    }
+    
+    .cen2{
+        justify-content: center;
+    }
+    
+    .cen{
+        justify-content: center;
+    }
+    
+    .datatable-header {
+        .datatable-header-cell {
+            padding: 0 !important;
+            background-color: $datatable-header-cell-background2 !important;
+            color: $datatable-header-cell-color2 !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            font-size: 18px !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+            font-weight: bold !important;
+        }
+    
+    }
+    
+    .datatable-body {
+        .datatable-body-row {
+          .datatable-body-cell {
+            padding: 0 !important;
+            text-align: center !important;
+            border: rgba(179,179,179,1) solid 1px !important;
+          }
+        }
+        .progress-linear {
+            display: none !important;
+        }
+    }
+    
+           
+    
+    .label-cliente {
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+        }
+    }
+    
+    .select2-selection__rendered {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8em;
+        font-style: italic;
+    }
+    @media screen and  (max-width: 450px){
+        .bor6{
+        margin-top: 6%;  
+         
+        }
+    }
+    @media screen and (min-width: 770px) and (max-width: 992px){
+        .casilla2{
+          justify-content: center;
+           margin-right: 20%;
+          
+        }
+    }
+    @media screen and (min-width: 1200px){
+        .casilla2{
+            margin-right: 40px;
+         }
+         .bor6{
+           padding-top: 12px;
+           padding-bottom: 12px;
+             
+            }
+    }
+    
+
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: rgba(41,171,224,1)!important;    
+    color: white;
+}
+    

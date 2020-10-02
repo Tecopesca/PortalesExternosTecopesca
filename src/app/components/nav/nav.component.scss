@@ -1,0 +1,35 @@
+ion-toolbar {
+    margin-left: 5%;
+    --ion-background-color:transparent;
+    --border-style: none;
+}
+
+ion-content{
+    --ion-background-color:transparent;
+}
+ion-menu{
+    //--ion-background-color:red;
+    --background: url(../../../assets/img/clientes/fonnav.png) ;
+
+}
+
+ion-item { --border-style: none }
+ 
+.in{
+cursor: pointer;
+
+}
+.fo{
+    //background-image: red;
+        //--background: url(../../../assets/img/cliente/menubutton.png) 0 0/100% 100% no-repeat;
+     background-color: white;
+     border-radius: 70%;
+     margin-right: 5%; ;
+       margin-top: 1%;
+    }
+
+    .ico{
+        //background-image: red;
+            //--background: url(../../../assets/img/cliente/menubutton.png) 0 0/100% 100% no-repeat;
+         color: black;
+        }

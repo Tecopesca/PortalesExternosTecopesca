@@ -1,0 +1,190 @@
+<!--<app-header titulo ="Compra de Materia Prima" lug="colaboradores"> </app-header> 
+
+
+
+<ion-content>
+
+    <ion-grid fixed>
+
+
+        <ion-row class="bor">
+            <ion-col   size-lg="0.9"  size-md="1.3"  size-sm="3"  size-xs="3"  >
+              <div  align="start">
+                 <label   class="lab"  >Mes y Año</label>
+               </div>
+            </ion-col>
+    
+            <ion-col size-lg="2.3" >
+              <label class="labred ino"  > {{fecham}}
+                <input  class="sinborde"  type="date"  (change)="mydate1(fecha);" [(ngModel)]="fecha" >
+              </label>  
+            </ion-col>
+       </ion-row >
+    
+
+       <ion-row style="border-top: #F7931E 1px solid;margin-top: 1%;">
+       
+        <ion-col size="12">
+          Requisitos compra materia prima
+         </ion-col>
+         
+         <ion-col size-lg="1"  size-md="3" size-sm="3" size-xs="3" >
+          <div  align="start">
+            <label   class="lab"  >No. compra</label>
+          </div>
+  
+         </ion-col>
+       
+         <ion-col size-lg="11"  size-md="9" size-sm="9" size-xs="9">
+            
+          <div align="start"  >
+            <ng-select2           
+            [width]="205"
+            [(ngModel)]="fil.compra"
+            [data]="items"
+            [placeholder]="'Seleccione Código compra'"
+            [options]="options"
+            [value]="fil"  
+            (valueChanged)="onTagChanged($event)"
+            >  
+                         
+            </ng-select2>
+  
+           </div>
+  
+         </ion-col>
+        
+       </ion-row>
+
+       <ion-row  style="border-top: #F7931E 1px solid;margin-top: 3%;justify-content: center;">
+        
+        <ion-row style="width: 100%;">
+          <ion-col size-xs="3" size-sm="9" size-md="9" size-lg="9" style="text-align: right;"></ion-col>
+          
+          
+          <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="" style="text-align: right;">
+              <ion-button (click)="alertguardarlr()" class="boton-accion" small >
+                  <ion-icon name="save"></ion-icon>
+              </ion-button>
+              <label class="label-accion"> Guardar</label>
+          </ion-col>
+          <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1">
+              <ion-button  (click)="cancelarlr()" class="boton-accion" small >
+                  <ion-icon name="close"></ion-icon>
+              </ion-button>
+              <label class="label-accion"> Cancelar</label>
+          </ion-col>
+          <ion-col size-xs="3" size-sm="1" size-md="1" size-lg="1">
+              <ion-button  (click)="actualizarlr()" class="boton-accion" small >
+                  <ion-icon name="refresh"></ion-icon>
+              </ion-button>
+              <label class="label-accion"> Actualizar</label>
+          </ion-col>
+      </ion-row>
+        
+         
+        <ion-col size-lg="12"   size-md="12" size-sm="12" size-xs="12" >
+          <div>
+            <ngx-datatable
+                #mydatatable
+                class="material bordes-redondeados" 
+                [limit]="10"
+                [columnMode]="ColumnMode.force"
+                footerHeight="50"
+                rowHeight="auto"
+                [rows]="items2"
+                [loadingIndicator]="true"
+            >
+  
+            <ngx-datatable-column name="Especie"  [width]="130"  prop="nombre">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+               <span
+               title="Doble click para editar"
+               (dblclick)="editlisr[rowIndex + '-name'] = true"
+               *ngIf="!editlisr[rowIndex + '-name']"
+               >
+               {{ value }}
+            </span>
+            <input
+          
+              autofocus
+              (blur)="updateValuenombre($event, 'name', rowIndex)"
+              *ngIf="editlisr[rowIndex + '-name']"
+              type="text"
+              [value]="value"
+            />
+          </ng-template>
+            </ngx-datatable-column>
+            
+           <ngx-datatable-column name="Talla"  [width]="130"  prop="valor">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+               <span
+               title="Doble click para editar"
+               (dblclick)="editlisr2[rowIndex + '-name'] = true"
+               *ngIf="!editlisr2[rowIndex + '-name']"
+               >
+               {{ value }}
+            </span>
+            <select            
+             (blur)="updateValuevalor($event, 'name', rowIndex)"
+             *ngIf="editlisr2[rowIndex + '-name']"
+             [value]="value"
+             autofocus
+            class="custom-select" id="inputGroupSelect02">
+              <option selected disabled>Seleccione ...</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+  
+          </ng-template>
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column name="Todos" prop="accion" width="240">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  <ion-button small class="boton-accion"   title="Imprimir Documento" (click)="Status_embarcacion_traer_documento(value.id)">
+                      <ion-icon name="document-outline"></ion-icon>
+                  </ion-button>
+                  <input hidden type="file" accept=".pdf" [id]="value.idFile" [name]="value.idFile" [(ngModel)]="elementos.archivo[value.idFile]" (change)="cargaArchivo($event.target.files,value.idFile,value.id)" />
+                  <ion-button small style="--background:#f7931e	"  title="Seleccione archivo" class="carga-archivo" (click)="llamarFile(value.idFile)">
+                      Seleccionar Archivo <ion-badge color="light">{{ totalArchivoCargado[value.idFile] ? totalArchivoCargado[value.idFile] : 0}}</ion-badge>
+                  </ion-button>
+              </ng-template>
+          </ngx-datatable-column>
+  
+            <ngx-datatable-column name="Valor"  [width]="130"  prop="observacion">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+               <span
+               title="Doble click para editar"
+               (dblclick)="editlisr3[rowIndex + '-name'] = true"
+               *ngIf="!editlisr3[rowIndex + '-name']"
+               >
+               {{ value }}
+            </span>
+            <input
+          
+              autofocus
+              (blur)="updateValueobservacion($event, 'name', rowIndex)"
+              *ngIf="editlisr3[rowIndex + '-name']"
+              type="text"
+              [value]="value"
+            />
+          </ng-template>
+            </ngx-datatable-column>
+  
+             
+             
+                
+            </ngx-datatable>
+             
+        </div>
+  
+        </ion-col>
+  
+      </ion-row>
+    
+
+
+    </ion-grid>
+   
+</ion-content>
+-->

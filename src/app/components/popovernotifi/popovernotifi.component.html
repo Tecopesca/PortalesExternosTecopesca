@@ -1,0 +1,174 @@
+<ion-header >
+  
+    <label style="border-bottom: #F7931E 4px solid; margin-bottom: 0; margin-left: 15%;font-weight: bold " >NOTIFICAR BREAK DOWN</label>
+
+  
+</ion-header>
+
+<ion-content    >
+  <div style=" background-color: #f2f2f2;" >
+    <ion-grid fixed>
+     <ion-row>
+
+       <ion-col size-lg="6"    size-md="6" size-sm="12" size-xs="12" >
+         <ion-row>
+           
+           <ion-col size="3.5"   > 
+             <div  align="start">
+            <label   style=" font-size: 0.7em;font-weight: bold; "  >Proveedor </label>
+             </div>
+           </ion-col>
+ 
+           <ion-col size="8.5"   >
+             <ion-input  class="inp" [(ngModel)]="elementos.provedor" disabled  placeholder="Ingrese Proveedor" >
+               
+             </ion-input>
+           </ion-col>
+
+           <ion-col size="3.5">
+            <div  align="start">
+              <label    style="  font-size: 0.7em;font-weight: bold;"   >Barco</label>
+            </div>
+           </ion-col>
+           <ion-col size="8.5">
+            <ion-input  class="inp" [(ngModel)]="elementos.barco"  placeholder="Ingrese Barco" disabled>
+               
+            </ion-input>
+           </ion-col>
+
+           <ion-col size="3.5">
+            <div  align="start">
+              <label  style=" font-size: 0.7em;font-weight: bold;"   >Viaje</label>
+            </div>
+           </ion-col>
+
+           <ion-col size="8.5">
+            <ion-input class="inp" placeholder="Ingrese Viaje" [(ngModel)]="elementos.viaje"  disabled>
+               
+            </ion-input>
+           </ion-col>
+
+           <ion-col size="3.5">
+
+            <div  align="start">
+              <label    style=" font-size: 0.7em;font-weight: bold;"   >Materia prima</label>
+            </div>
+
+           </ion-col>
+
+           <ion-col size="8.5">
+            <ion-input  class="inp" placeholder="Ingrese Materia prima"  [(ngModel)]="elementos.materia" disabled >
+               
+            </ion-input>
+           </ion-col>
+           
+           <ion-col size="6">
+            <div  align="start">
+             <label   style=" font-size: 0.7em;font-weight: bold;"  >Fecha estimada de llegada</label>
+            </div>
+           </ion-col>
+           <ion-col size="6">
+            <input  type="date" class="inp" [(ngModel)]="elementos.fecha"  style="background: transparent;" placeholder="Ingrese Fecha" >
+               
+            
+           </ion-col>
+
+           <ion-col size="3.5">
+            <div  align="start">
+             <label   style=" font-size: 0.7em;font-weight: bold;"  >Peso</label>
+            </div>
+          </ion-col>
+
+          <ion-col size="4">
+            <ion-input  class="inp" [(ngModel)]="elementos.peso" placeholder="Ingrese peso" >
+               
+            </ion-input>
+          </ion-col>
+          
+          <ion-col size="0.5"></ion-col>
+
+          <ion-col size="4">
+          
+            <ng-select2           
+           
+            [(ngModel)]="elementos.unidad"
+          [placeholder]="'Seleccione unidad '"
+          [options]="options"
+          [data]="items11"
+          [value]="elementos.unidad" 
+          >           	
+          </ng-select2>
+          </ion-col>
+
+          
+         </ion-row> 
+
+       </ion-col>
+     
+       <ion-col size-lg="6"    size-md="6" size-sm="12" size-xs="12" >
+         <ion-row *ngIf="isError" > 
+
+          <ion-col size="3.5"> 
+            <div  align="start">
+           <label   style=" font-size: 0.7em;font-weight: bold;"  >Observación</label>
+            </div>
+          </ion-col>
+
+          <ion-col size="8.5"> 
+            <ion-textarea [(ngModel)]="elementos.observacion"   placeholder="Ingrese Observación" style="
+            height: 50px; 
+             border: solid 1px #b7b7b7;
+            border-radius: 10px 10px 0 0;  width: 100%; font-size: 0.7em;font-weight: bold;
+           padding-top: 5px ;
+           padding-bottom: 5px ;
+           padding-left: 5px ;">
+           </ion-textarea>
+            
+          </ion-col>
+          
+
+         </ion-row>
+
+       </ion-col>
+
+      </ion-row>
+      
+      <ion-row >
+
+           <ion-col size-lg="6"    size-md="6" size-sm="12" size-xs="12" >
+
+               <ion-row>
+                <ion-col size="3.5"></ion-col>
+                <ion-col size="8.5">                
+                  <input hidden type="file" (change)="cargaArchivo($event.target.files)" #uploader name="formato" [(ngModel)]="elementos.formato" />
+                    <ion-button type="button"  style="width: 100%;height: 100%;--background: #F7931E; --background-hover:#F7931E" (click)="uploader.click()">
+                      Selecciona archivo <ion-badge color="light" class="badge-total-arhivos">{{ totalArchivoCargado }}</ion-badge>
+                    </ion-button>   
+                </ion-col>
+               </ion-row>
+           </ion-col>
+        
+            <ion-col size-lg="6"    size-md="6" size-sm="12" size-xs="12" > 
+              <ion-row>
+
+                <ion-col size="7"></ion-col>
+
+                <ion-col size="5">
+                 
+                    <ion-button type="button"  style="width: 100%;height: 100%;--background: #F7931E; --background-hover:  #F7931E" (click)="notificar()">
+                      Notificar
+                    </ion-button>
+                  
+                </ion-col>
+  
+
+              </ion-row>
+             
+            </ion-col>
+
+      </ion-row>
+
+     
+    </ion-grid>
+  </div>
+</ion-content>

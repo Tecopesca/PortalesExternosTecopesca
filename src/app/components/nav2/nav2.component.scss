@@ -1,0 +1,369 @@
+ion-toolbar {
+    margin-left: 5%!important;
+    margin-top: 7%!important;;
+    --ion-background-color:transparent;
+    --border-style: none;
+}
+.menu-inner
+{
+    border: none;
+}
+ion-content{
+    --ion-background-color:transparent;
+}
+ion-menu{
+    //--ion-background-color:red;
+    //--background: url(../../../assets/img/clientes/fonnav.png) ;
+    --width:100% !important;
+    --background: transparent!important;
+    
+}
+.fond{
+    background: url(../../../assets/img/clientes/fonnav.png) ;
+
+}
+ion-item { --border-style: none }
+.in,.i{
+cursor: pointer;
+
+}
+
+.fo{
+    //background-image: red;
+        //--background: url(../../../assets/img/cliente/menubutton.png) 0 0/100% 100% no-repeat;
+     background-color: white;
+     border-radius: 70%;
+     margin-right: 5%; ;
+       margin-top: 1%;
+    }
+
+    .ico{
+        //background-image: red;
+            //--background: url(../../../assets/img/cliente/menubutton.png) 0 0/100% 100% no-repeat;
+         color: black;
+        }
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*, *:before, *:after{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+    .cli{
+        width: 75%;
+        cursor: pointer;
+        height: 100vh;
+    }    
+.container{
+    background: url(../../../assets/img/clientes/fonnav.png) ;
+	position: fixed;
+	height: 100%;
+	right:  0;
+    width: 25%;
+	top: 0;
+	box-shadow: 3px 0 10px rgba(0,0,0,.2);
+	-webkit-transition: left .5s ease;
+	-o-transition: left .5s ease;
+	transition: left .5s ease;
+	z-index: 1000;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+.derecha {
+	float: left;
+    line-height: 25px;
+    display: none;
+}
+.derecha1 {
+	float: right;
+    line-height: 25px;
+    display: none;
+
+}
+#menu_principal .inici a{
+    color: black;
+     padding-left: 7%!important;
+     -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+     display: block;
+    height: 100%;
+  }
+#menu_principal .Concurso   label{
+   padding-top: 18px;
+	color: black;
+	display: block;
+	text-decoration: none;
+	-webkit-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+
+
+#menu_principal > li {
+	margin: 0 0 0 0;
+}
+ul{
+	list-style: none;
+	
+}
+
+
+[id^=drop], .mif-expand-more{
+	display: none;
+}
+
+
+
+ .principales {
+	margin-right: 10px;
+}
+.invisible{
+	left: -200px;
+}
+
+ 
+a{
+    color: black !important;
+}
+
+@media only screen and (max-width: 560px){
+    .fac{
+        width: 65%;
+    }
+    .con{
+        width: 90%;
+    }
+    .container{
+        width: 75%;
+
+
+    }
+    .proces{
+        padding-top: 6%;
+        font-weight:bold;
+        font-size: 30px;
+        margin-bottom: 10%;
+        height: 70px;
+        padding-left: 5%;
+        display: none;
+    }
+    .lis{
+        border-bottom: rgba(153,153,153,1) 2px solid;
+        padding-left: 5%;
+    
+    }
+   
+	#menu_principal li {
+		margin: auto;
+        min-height: 60px;
+        max-height: auto;
+        width: 100%;
+        position: relative;
+         vertical-align: middle;
+         line-height: 60px;
+
+	}
+    #menu_principal .Concurso   label{
+         padding-left: 7%;
+    }
+	nav{
+         
+
+        min-height:80vh;
+		overflow-y: auto;
+		max-height: 80%;
+        overflow-x: hidden; 
+	}
+	.mif-expand-more{
+		display: inline;
+	}
+
+	ul li .mif-chevron-left {
+		display: none;
+	}
+
+    
+
+    .esc,.esc1 {
+        background-color: transparent;
+         top: 60px;
+        width: 100%;
+        box-shadow: 3px 0 10px rgba(0,0,0,.2);
+         text-decoration: none;
+         color: black;
+         padding-left: 5%;
+          height: auto;
+      display: none;
+     }
+}
+
+@media only screen and (min-width: 561px) and (max-width: 890px)  {
+    
+    .fac{
+        width: 54%;
+    }
+    .con{
+        width: 76%;
+    }
+    .container{
+        width: 50%;
+      height: 100%;
+    }
+    .proces{
+        padding-top: 6%;
+        font-weight:bold;
+        font-size: 30px;
+        margin-bottom: 10%;
+        height: 70px;
+        padding-left: 5%;
+        display: none;
+    }
+    .lis{
+        border-bottom: rgba(153,153,153,1) 2px solid;
+        padding-left: 5%;
+    
+    }
+   
+	#menu_principal li {
+		margin: auto;
+        min-height: 60px;
+        max-height: auto;
+        width: 100%;
+        position: relative;
+         vertical-align: middle;
+         line-height: 60px;
+
+	}
+    #menu_principal .Concurso   label{
+         padding-left: 7%;
+    }
+	nav{
+        min-height:80vh;
+		overflow-y: auto;
+		max-height: 80%;
+        overflow-x: hidden; 
+	}
+	.mif-expand-more{
+		display: inline;
+	}
+
+	ul li .mif-chevron-left {
+		display: none;
+	}
+
+    
+
+    .esc ,.esc1{
+        background-color: transparent;
+         top: 60px;
+        width: 100%;
+        box-shadow: 3px 0 10px rgba(0,0,0,.2);
+         text-decoration: none;
+         color: black;
+         padding-left: 5%;
+          height: auto;
+      display: none;
+     }
+}
+
+@media only screen and (min-width: 900px){
+    #menu_principal .Concurso   label{
+        padding-left: 7%!important;
+     }
+    nav ul li:hover > ul {
+        display: inherit;
+        color: black;
+        .proces{
+            padding-top: 6%;
+            font-weight:bold;
+            font-size: 30px!important;
+            margin-bottom: 10%;
+            height: 70px;
+            padding-left: 5%;
+        }
+        .lis{
+            border-bottom: rgba(153,153,153,1) 2px solid;
+            padding-left: 5%;
+
+        }
+    }
+    #menu_principal li:hover > label{
+       
+        font-weight: bold;
+        cursor: pointer;
+        padding-left: 0%!important;
+        .fac{
+            width: 53%;
+        }
+        .con{
+            width: 73%;
+        }
+     }
+
+    #menu_principal li:hover > a{
+        font-weight: bold;
+        cursor: pointer;
+    
+     }
+     #menu_principal li:hover  .derecha {
+        float: left;
+        line-height: 25px;
+        display: block;  
+     }
+    #menu_principal li {
+        height: 60px;
+        line-height: 60px;
+        position: relative;
+        width: 100%;
+    }
+    #menu_principal .inici a{
+        color: black;
+         padding-left: 7%!important;
+         -webkit-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
+     
+
+    }
+    
+    .esc {
+        background-color: white;
+        position: absolute;
+        top: -250%;
+        width: 90%;
+        right:   100%;
+        text-decoration: none;
+         color: black;
+         padding-left: 5%;
+          display: none;   
+         height: 120vh;
+     }
+     .esc1 {
+        background-color: white;
+        position: absolute;
+        top: -450%;
+        width: 90%;
+        right:   100%;
+          text-decoration: none;
+         color: black;
+         padding-left: 5%;
+          display: none;   
+         height: 120vh;
+     }
+     .fac{
+        width: 45%;
+    }
+    .con{
+        width: 68%;
+    }
+    #menu_principal .Concurso   label{
+        padding-top: 20px;
+        
+     }
+     
+}

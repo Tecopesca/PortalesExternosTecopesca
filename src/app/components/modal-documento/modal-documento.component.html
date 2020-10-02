@@ -1,0 +1,8 @@
+<div>
+  <b>From</b>
+  <br>
+  {{ archivo[0].senderName }}
+  <br>
+  <b>To</b>
+  <p *ngFor="let factura of archivo[0].recipients">{{ factura.name }}</p>
+</div>

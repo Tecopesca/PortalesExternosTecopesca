@@ -1,0 +1,79 @@
+app-header{
+    width: 100%;
+    // height: 15%;
+}
+
+.input-proveedor {
+    width: 100%;
+    height: 30px;
+    font-size: 0.8em;
+
+    border: solid 1px rgba(153,153,153,1);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.label-proveedor {
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    @media screen and (min-width: 992px) and (max: 1110px) {
+        padding-left: 15%;
+    }
+    @media screen and (min-width: 1110.1px) {
+        padding-left: 25%;
+    }
+}
+
+.boton-cancelar {
+    @media screen and (min-width: 992px) and (max: 1110px) {
+        margin-left: 15%;
+    }
+    @media screen and (min-width: 1110.1px) {
+        margin-left: 25%;
+    }
+}
+
+.textarea-proveedor {
+    width: 100%;
+    height: 75px;
+    resize: none;
+    font-size: 0.8em;
+
+    border: solid 1px rgba(153,153,153,1);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.leyenda-boton {
+    text-align: left;
+    font-style: italic;
+    font-size: 0.6em;
+    color: rgba(153,153,153,1);
+}
+
+ion-button {
+    --background: rgba(102,45,145,1);
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+.button-proveedor {
+    --background: rgba(195,173,212,1);
+    --color: rgba(102,45,145,1);
+    --padding-end: 4px;
+    --padding-start: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.actualizacion {
+    text-align: right;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #662d91!important;
+    color: white;
+  }
+    

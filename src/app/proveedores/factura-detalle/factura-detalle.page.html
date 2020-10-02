@@ -1,0 +1,170 @@
+<ion-header>
+  <app-header titulo ="Notificar Facturas" lug="proveedores"></app-header>
+</ion-header>
+
+<ion-content class="proveefd">
+  <ion-grid class="contenido">
+    <ion-row>
+      <ion-col size="12">
+        <label class="titulo-pincipal">Cargar Facturas</label>
+      </ion-col>
+    </ion-row>
+
+    <form (ngSubmit)="subirFactura()">
+      <ion-row>
+        <ion-col size-lg="4" size="4" size-sm="12" size-xs="12" class="sin-padding">
+          <ion-row class="sin-padding">
+            <ion-col size-lg="3.5" size="3.5" size-sm="12" size-xs="12">
+              <label class="label-proveeedor">Formato</label>
+            </ion-col>
+            <ion-col size-lg="8.5" size="8.5" size-sm="12" size-xs="12">
+              <input hidden type="file" (change)="cargaArchivo($event.target.files)" #uploader name="formato" [(ngModel)]="elementos.formato" />
+              <ion-button type="button" small class="file-proveedor" (click)="uploader.click()">
+                Selecciona archivo <ion-badge color="light" class="badge-total-arhivos">{{ totalArchivoCargado }}</ion-badge>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size-lg="5" size="5" size-sm="12" size-xs="12" class="sin-padding">
+          <ion-row class="sin-padding">
+            <ion-col size-lg="4" size="4" size-sm="12" size-xs="12">
+              <label class="label-proveeedor">Número de Factura</label>
+            </ion-col>
+            <ion-col size-lg="8" size="8" size-sm="12" size-xs="12">
+              <input
+                type="text"
+                name="total"
+                [(ngModel)]="elementos.total"
+                [cleave]="configcleave"
+                class="input-proveedor"
+                (keypress)="valideKey($event)"
+                placeholder="000-000-000000000"
+              />
+              <!-- (paste)="onPaste()" -->
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size-lg="3" size="3" size-sm="0" size-xs="0"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-lg="4" size="4" size-sm="12" size-xs="12" class="sin-padding">
+          <ion-row class="sin-padding">
+            <ion-col size-lg="3.5" size="3.5" size-sm="12" size-xs="12">
+              <label class="label-proveeedor">Descripción</label>
+            </ion-col>
+            <ion-col size-lg="8.5" size="8.5" size-sm="12" size-xs="12">
+              <textarea class="textarea-proveedor" name="descripcion" [(ngModel)]="elementos.descripcion" placeholder="Escriba una descripción"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size-lg="5" size="5" size-sm="12" size-xs="12" class="sin-padding">
+          <ion-row class="sin-padding">
+            <ion-col size-lg="4" size="4" size-sm="12" size-xs="12">
+              <label class="label-proveeedor">Área de servicio</label>
+            </ion-col>
+            <ion-col size-lg="8" size="8" size-sm="12" size-xs="12">
+              <ng-select2
+                [(ngModel)]="elementos.area"
+                [data]="cmbArea"
+                [options]="configSelect"
+                [placeholder]="'Seleccione ...'"
+                name="area"
+                [allowClear]="true"
+              >
+              </ng-select2>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size-lg="3" size="3" size-sm="12" size-xs="12" class="sin-padding">
+          <ion-button type="submit" small class="boton-subir" [disabled]="atributosBoton.disabledBoton">
+            <ion-icon name="cloud-upload-outline" style="padding-right: 5px;"></ion-icon> {{ atributosBoton.textoBoton }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <div class="linea" > </div>
+    <ion-row>
+      <ion-col size-lg="3" size="3" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+        <ion-row>
+          <ion-col size-lg="3" size="3" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+            <label class="label-proveeedor">Año</label>
+          </ion-col>
+          <ion-col size-lg="9" size="9" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+            <ng-select2
+              [(ngModel)]="filtroAnio"
+              [data]="cmbAnio"
+              [options]="configSelect"
+              [placeholder]="'Seleccione ...'"
+              [allowClear]="true"
+            >
+            </ng-select2>
+          </ion-col>
+          <ion-col size-lg="9" size="9" size-sm="12" size-xs="12" class="sin-padding-vertical2"></ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size-lg="3" size="3" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+        <ion-row>
+          <ion-col size-lg="3" size="3" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+            <label class="label-proveeedor">Mes</label>
+          </ion-col>
+          <ion-col size-lg="9" size="9" size-sm="12" size-xs="12" class="sin-padding-vertical2">
+            <ng-select2
+              [(ngModel)]="filtroMes"
+              [data]="cmbMeses"
+              [options]="configSelect"
+              [placeholder]="'Seleccione ...'"
+              [allowClear]="true"
+            >
+            </ng-select2>
+          </ion-col>
+          <ion-col size-lg="9" size="9" size-sm="12" size-xs="12" class="sin-padding-vertical2"></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-lg="6" size="6" size-sm="6" size-xs="6" class="sin-padding-vertical2">
+        <ion-button small class="boton-subir" (click)="consultarFacturaProveedorAnio()">FILTRAR</ion-button>
+      </ion-col>
+      <ion-col size-lg="6" size="6" size-sm="6" size-xs="6" style="text-align: right;" class="sin-padding-vertical">
+        <ion-button small class="btn-proveedor-actualizar" (click)="actualizarTabla()">
+          <ion-icon name="refresh-outline"></ion-icon>
+        </ion-button>
+        <label class="lbl-proveedor-actualizar">Actualizar</label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="sin-padding-vertical">
+        <ngx-datatable
+          #mydatatable
+          class="material bordes-redondeados5"
+          [limit]="10"
+          [columnMode]="ColumnMode.force"
+          footerHeight="50"
+          rowHeight="auto"
+          [rows]="rows"
+          [loadingIndicator]="true"
+          [scrollbarH]="true"
+      >
+          <ngx-datatable-column name="Fecha de Emisión" prop="fecha" width="200"></ngx-datatable-column>
+          <ngx-datatable-column name="N. de Factura" prop="factura"></ngx-datatable-column>
+          <ngx-datatable-column name="Descripción" prop="descripcion"></ngx-datatable-column>
+          <ngx-datatable-column name="Total" prop="total"></ngx-datatable-column>
+          <ngx-datatable-column name="Acciones" prop="ver">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                <ion-button small class="btn-proveedor-actualizar" (click)="VerFactura(value)" title="Ver Factura">
+                  <ion-icon name="document-outline"></ion-icon>
+                </ion-button>
+                <ion-button small class="btn-proveedor-actualizar" (click)="eliminarFactura(value)" title="Eliminar Factura">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+            </ng-template>
+          </ngx-datatable-column>
+      </ngx-datatable>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

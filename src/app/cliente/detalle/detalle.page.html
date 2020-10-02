@@ -1,0 +1,102 @@
+<app-header titulo ="Detalles de Facturas" lug="clientes"> </app-header>
+<ion-content class="detallecli">
+    <ion-grid fixed class="center ">
+        <ion-row class="cen2" >
+            <ion-col size-lg="10.5"  size-md="0" size-sm="0" size-xs="0" ></ion-col>
+            <ion-col size-lg="10.5"  size-md="12" size-sm="12" size-xs="12">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12" style="font-size: 14px;" [ngClass]="['banner-detalle']">
+                            Detalles
+                        </ion-col>
+                    </ion-row>
+                    <ion-row style=" justify-content: center;">
+                        <ion-col style="font-size: 14px;" class="casilla2"  size-lg="i" size-md="i" size-sm="6"  size-xs="6" *ngFor="let casilla of casillas ; let i = index">
+                            <app-casilla-detalle [dato]="casilla.descripcion" [dato2]="casilla.cantidad" ></app-casilla-detalle>
+                        </ion-col>
+                    </ion-row>
+                    <div [ngClass] ="['linea']"></div>
+                    <ion-row class="segunda-fila2 bor6" >
+                        <ion-col size-lg="1"  size="1" size-sm="0" size-xs="0"></ion-col>
+
+                        <ion-col size-lg="3"  size="3" size-sm="12" size-xs="12">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size-xs="3" size-sm="2" size="4" size-lg="4" class="label-cliente">
+                                        <label>Proforma</label>
+                                    </ion-col>
+                                    <ion-col size-xs="9" size-sm="10" size="8" size-lg="8">
+                                        <ng-select2
+                                            [(ngModel)]="fil.slcProforma"
+                                            [data]="row2"
+                                            [options]="options"
+                                            [placeholder]="'Seleccione una Proforma'"
+                                        >
+                                        </ng-select2>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                         </ion-col>
+
+                        <ion-col size-lg="3"  size="3" size-sm="12" size-xs="12">
+                           <ion-grid>
+                               <ion-row>
+                                   <ion-col size-xs="3" size-sm="2" size="3" size-lg="3" class="label-cliente">
+                                    <label>Año</label>
+                                   </ion-col>
+                                   <ion-col size-xs="9" size-sm="10" size="9" size-lg="9">
+                                    <ng-select2
+                                        [(ngModel)]="fil.slcAnio"
+                                        [data]="row4"
+                                        [placeholder]="'Seleccione un Año'"
+                                        [value]="selectedDatas"
+                                        [options]="options"
+                                        (valueChanged)="onTagChanged($event)"
+                                        >		
+                                    </ng-select2>
+                                   </ion-col>
+                               </ion-row>
+                           </ion-grid>
+                        </ion-col>
+
+                         <ion-col size-lg="4"  size="4" size-sm="12" size-xs="12">
+                             <ion-grid>
+                                 <ion-row>
+                                     <ion-col size-lg="5"  size="5" size-sm="6" size-xs="12">
+                                        <ion-button class="busqueda" (click)="realizarBusqueda2()">Buscar</ion-button>
+                                     </ion-col>
+                                     <ion-col size-lg="7"  size="7" size-sm="6" size-xs="0"></ion-col>
+                                 </ion-row>
+                             </ion-grid>
+                        </ion-col>
+                        <ion-col size-lg="1"  size="1" size-sm="0" size-xs="0"></ion-col>
+                    </ion-row>
+                    <ion-row class="bor7" style="  justify-content: center "> 
+                        <ion-col   size-lg="10"  size="10" size-sm="12" size-xs="12">
+                            <ngx-datatable   
+                                #mydatatable
+                                class="material bordes-redondeados2"
+                                [limit]="10"
+                                [columnMode]="ColumnMode.force"
+                                footerHeight="50"
+                                rowHeight="auto"
+                                [rows]="row3"
+                                [loadingIndicator]="true"
+                                [rowClass]="getRowClass"
+                                [scrollbarH]="true"
+                                
+                            >
+                                <ngx-datatable-column name="Proforma" prop="proforma"></ngx-datatable-column>
+                                <ngx-datatable-column name="Pedido" prop="pedido"></ngx-datatable-column>
+                                <ngx-datatable-column name="Contenedores" prop="contenedores"></ngx-datatable-column>
+                                <ngx-datatable-column name="Valor" prop="valorc"></ngx-datatable-column>
+                                <ngx-datatable-column name="Saldo" prop="saldoc"></ngx-datatable-column>
+                            </ngx-datatable>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+            <ion-col size-lg="1"  size-md="1" size-sm="0" size-xs="0"></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

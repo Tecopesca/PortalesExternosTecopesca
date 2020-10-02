@@ -1,0 +1,64 @@
+<!--<app-header titulo =" Administración contratos" lug="colaboradores"> </app-header> 
+
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size-xs="0" size-sm="0" size-md="1" size-lg="1" class="sin-padding"></ion-col>
+            <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="10" class="sin-padding">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="11" class="sin-padding">
+                            <div class="div-en-linea">
+                                <label for="semana" class="label-colaborador">Tipo arte: </label> <input id="semana" type="text" class="text-colaborador2">
+                            </div>
+                        </ion-col>
+                        <ion-col size="1" class="sin-padding">
+                            <ion-button class="boton-accion" small>
+                                <ion-icon name="refresh"></ion-icon>
+                            </ion-button>
+                            <label class="label-accion"> Actualizar</label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="sin-padding">
+                            <ngx-datatable
+                                #mydatatable
+                                class="material bordes-redondeados5"
+                                [limit]="10"
+                                [columnMode]="ColumnMode.force"
+                                footerHeight="50"
+                                rowHeight="auto"
+                                [rows]="rows"
+                                [loadingIndicator]="true"
+                                [scrollbarH]="true"
+                            >
+                                <ngx-datatable-column name="Código de compra" prop="codigo"></ngx-datatable-column>
+                                <ngx-datatable-column name="Grupo de compra" prop="grupo"></ngx-datatable-column>
+                                <ngx-datatable-column name="Tipo de compra" prop="tipo"></ngx-datatable-column>
+                                <ngx-datatable-column name="Proveedor" prop="proveedor"></ngx-datatable-column>
+                                <ngx-datatable-column name="Barco" prop="barco"></ngx-datatable-column>
+                                <ngx-datatable-column name="Viaje" prop="viaje"></ngx-datatable-column>
+                                <ngx-datatable-column name="Materia prima" prop="materia_prima"></ngx-datatable-column>
+                                <ngx-datatable-column name="Peso estimado" prop="peso_estimado"></ngx-datatable-column>
+                                <ngx-datatable-column name="Fecha Llegada" prop="fecha_llegada"></ngx-datatable-column>
+                                <ngx-datatable-column name="Cargar contrato" prop="caga_contrato">
+                                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                                    <ion-button small class="boton-accion" title="Ver Factura">
+                                        <ion-icon name="document-outline"></ion-icon>
+                                    </ion-button>
+                                    <ion-button small title="Seleccione archivo">
+                                        Seleccionar Archivo
+                                    </ion-button>
+                                </ng-template>
+                                </ngx-datatable-column>
+                            </ngx-datatable>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+            <ion-col size-xs="0" size-sm="0" size-md="1" size-lg="1" class="sin-padding"></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+-->
