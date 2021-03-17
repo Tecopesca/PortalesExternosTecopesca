@@ -8,14 +8,14 @@ export const environment = {
 
 export const configProveedores = {
   LOGIN: {
-    URL: 'http://mail.gcv.ec:8042/ws_dd_externo_portales_desarrollo/Sistemas/Sistemas.svc?singleWsdl'
+    URL: 'http://ddws.tecopesca.com:8042/ws_dd_externo_portales_desarrollo/Sistemas/Sistemas.svc?singleWsdl'
     ,METODOS : [
       'autenticar_usuario'
       ,'traer_menu'
     ]
   }
   ,PROVEEDOR: {
-    URL: 'http://mail.gcv.ec:8042/ws_dd_externo_portales_desarrollo/Adquisiciones/Solicitud_compra/Solicitud_compra.svc?singleWsdl'
+    URL: 'http://ddws.tecopesca.com:8042/ws_dd_externo_portales_desarrollo/Adquisiciones/Solicitud_compra/Solicitud_compra.svc?singleWsdl'
     ,METODOS: [
       'traer_solicitud_compra'
       ,'ingresar_cotizacion'
@@ -27,7 +27,7 @@ export const configProveedores = {
       ,'actualziar_proveedor'
       ,'traer_proveedor'
     ]
-    ,URL2: 'http://mail.gcv.ec:8042/ws_dd_externo_portales_desarrollo/Proveedores/FacturaServicio/FacturaServicio.svc?singleWsdl'
+    ,URL2: 'http://ddws.tecopesca.com:8042/ws_dd_externo_portales_desarrollo/Proveedores/FacturaServicio/FacturaServicio.svc?singleWsdl'
     ,METODOS2: [
       'Traer_Factura_PorNumero'
       ,'Traer_Factura_PorNumero_Estado'
@@ -43,14 +43,14 @@ export const configProveedores = {
 
 export const configColaborador = {
   LOGIN: {
-    URL: 'http://mail.gcv.ec:8042/ws_dd_externo_portales/Sistemas/Sistemas.svc?singleWsdl'
+    URL: 'http://ddws.tecopesca.com:8042/ws_dd_externo_portales/Sistemas/Sistemas.svc?singleWsdl'
     ,METODOS : [
       'autenticar_usuario'
       ,'traer_menu'
     ]
   }
   ,COLABORADOR: {
-    URL: 'http://mail.gcv.ec:8042/ws_dd_externo_portales/Colaboradores/CompraMP/Negociacion.svc?singleWsdl'
+    URL: 'http://ddws.tecopesca.com:8042/ws_dd_externo_portales/Colaboradores/CompraMP/Negociacion.svc?singleWsdl'
     ,METODOS: [
       'Traer_resumen_compra_mes_anio',//0
       'Traer_resumen_cabecera_mes_anio',//1
