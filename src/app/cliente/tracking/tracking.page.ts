@@ -72,15 +72,7 @@ export class TrackingPage implements OnInit {
   search(){
     this.items2.push({id: '3', text:  'Todos' ,anio:' ' });
     this.items3.push({id: '3', text:  'Todos',proforma:' ' });
-    this.rows.push({ 
-      id_pedido:'',
-      anio:'',
-      style: '',
-      proforma: "1",
-      pedido : ' ',
-      proceso: ' ',
-      fecha: "5 de Enero,2019" , 
-      tracking: {id_pedido: '1', pedido: "PROF -001080"},});
+    
       
     var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
