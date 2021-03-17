@@ -102,26 +102,7 @@ export class DetallePage implements OnInit {
             valorc: "$"+ele.valor_factura,
             saldoc: "$"+ele.saldo_factura,
           });
-        });
-        this.rows.unshift({
-          proforma: 'prof test 2',
-          pedido: '1234567',
-          contenedores:'3',
-          valor:'100',
-          saldo: '0',
-          valorc:'$100',
-          saldoc: '$0',
-          anio:'2020',
-        },{
-          proforma: 'prof test',
-          pedido: '123456',
-          contenedores:'1',
-          valor:'0',
-          saldo: '100',
-          valorc:'$0',
-          saldoc: '$100',
-          anio:'2020',
-        });
+        });        
         this.rows = [...this.rows];
       this.row3= this.rows;
        this.row2=this.row21;
